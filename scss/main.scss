@@ -1,0 +1,14 @@
+@import "partials/colors";
+@import "partials/nav";
+
+body {
+    background-color: $main;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+h1 {
+    color: $highlight;
+}

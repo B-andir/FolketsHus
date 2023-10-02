@@ -1,0 +1,38 @@
+{
+  "name": "folketshus",
+  "version": "1.0.0",
+  "description": "Website for Folkets Hus Hallstavik",
+  "main": "index.js",
+  "scripts": {
+    "start": "node start index.js",
+    "dev": "nodemon start index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/B-andir/FolketsHus.git"
+  },
+  "keywords": [
+    "website",
+    "node",
+    "express"
+  ],
+  "author": "Daniel Svenberg",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/B-andir/FolketsHus/issues"
+  },
+  "homepage": "https://github.com/B-andir/FolketsHus#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-device": "^0.4.2",
+    "express-session": "^1.17.3",
+    "mongoose": "^7.5.3",
+    "morgan": "^1.10.0"
+  }
+}
