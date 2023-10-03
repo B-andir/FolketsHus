@@ -1,0 +1,21 @@
+Navbar
+	- Bio Rosen (redirect -> filmer)
+  		> Filmer
+  		> Live på Bio
+  		> Bio Kontrast
+
+  	- Unes Kök & Bar
+
+  	- Boka Lokal
+
+  	- Om Oss (redirect -> vi-som-jobbar-har)
+  		> Vi Som Jobbar Här
+  		> Om Huset
+  		> Folkets Hus Hallstavik 100 år
+  		> Våra Hyresgäster
+
+  	- Kontakt
+
+Footer
+
+Landing Page

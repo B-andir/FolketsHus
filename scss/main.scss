@@ -1,14 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 @import "partials/colors";
 @import "partials/nav";
+@import "partials/footer";
 
 body {
     background-color: $main;
     margin: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     overflow-x: hidden;
 }
 
 h1 {
     color: $highlight;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.sticky {
+    position: sticky;
+}
+
+#pageContainer {
+    position: relative;
+    min-height: 100vh;
+    top: 10vh;
+}
+
+#contentWrap {
+    padding-bottom: 2.5rem;
 }
