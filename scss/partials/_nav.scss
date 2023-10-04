@@ -5,10 +5,14 @@
     width: 100%;
     height: 10vh;
 
-    padding-bottom: 5px;
+    padding-bottom: 8px;
     
     background: rgb(184,13,13);
     background: linear-gradient(0deg, rgba(184,13,13,1) 0%, rgba(176,0,75,1) 17%);
+
+    box-shadow: 0px 0px 0px $soft-dark;
+
+    transition: padding 0.2s ease, box-shadow 0.2s ease, height 0.2s ease;
 }
 
 nav {
@@ -22,16 +26,62 @@ nav {
     align-items: center;
 
     #logoSection {
-        width: 22%;
-        max-width: 230px;
+        z-index: 5;
+        height: 100%;
 
-        margin-left: 5%;
+        width: fit-content;
+
+        padding-left: 5vw;
+
+        background-color: $main;
 
         align-items: center;
 
+        display: flex;
+
+
         img {
-            width: 100%;
+            z-index: 6;
+            background-color: $main;
+            max-width: 175px;
+            max-height: 9vh;
+
+            width: auto;
+            height: auto;
+
+            transition: max-width 0.2s ease, max-height 0.2s ease;
+        
+            &:hover{
+                cursor: pointer;
+            }
         }
+
+        h1 {
+            z-index: 2;
+            margin-left: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: black;
+            font-size: 22px;
+
+            position: relative;
+
+            transition: font-size 0.2s ease, transform 0.4s ease;
+        
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+
+    #logoCutoff {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 4;
+        background-color: $main;
+        height: 10vh;
+        width: 6vw;
+        transition: height 0.2s ease;
     }
 
     #navSection {
@@ -41,19 +91,23 @@ nav {
 
         grid-template-columns: repeat(5, 1fr);
 
+        padding: 0;
+
         list-style: none;
 
         
         .navElement {
+            z-index: 4;
             width: 11vw;
             min-width: 130px;
             height: 50px;
 
             background-color: $main;
 
-            box-shadow: 0px 0px 0px $soft-dark;
+            box-shadow: 0px 0px 2px transparent;
+            border-radius: 0px;
 
-            transition: box-shadow 0.1s ease, background-color 0.2s ease;
+            transition: box-shadow 0.13s ease, border-radius 0.1s ease;
 
             display: flex;
             justify-content: center;
@@ -61,28 +115,51 @@ nav {
 
             p {
                 font-family: 'Roboto', sans-serif;
-                font-weight: 500;
+                font-weight: 700;
                 
                 margin: 0;
                 text-align: center;
-                font-size: 17px;
+                font-size: 18px;
+                color: $red-dark;
 
-                transition: color 0.02s linear;
+                transition: color 0.02s linear, font-size 0.2s ease;
             }
 
             &.dropdownButton {
                 gap: 10px;
+
+                .dropdownArrow {
+                    transition: transform 0.2s ease;
+                }
+
+                &:hover {
+                    border-bottom-left-radius: 0px;
+                    border-bottom-right-radius: 0px;
+                }
             }
 
             &:hover {
                 cursor: pointer;
 
                 box-shadow: 0px 1px 2px $soft-dark;
-                background-color: #EAD4CD;
+                border-radius: 4px;
 
-                p {
-                    color: $red-dark;
+                &:not(.dropdownButton) {
+                    border-left: 1px solid $soft;
+                    border-right: 1px solid $soft;
+                    min-width: 128px;
+                    width: calc(11vw - 2px);
                 }
+
+                .firstLayer {
+                    color: $red;
+                }
+
+                .dropdownArrow {
+                    transform: rotate(90deg);
+                }
+                
+                
             }
 
             .dropdown {
@@ -91,14 +168,25 @@ nav {
                 list-style: none;
                 padding: 12px 0;
 
-                background-color: #EAD4CD;
+                background-color: $main;
+                border-left: 1px solid $soft;
+                border-right: 1px solid $soft;
 
-                min-width: max(130px, 11vw);
-                width: min(11vw, max-content);
+                width: calc(11vw - 2px);
+                min-width: 128px;
 
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
+                gap: 14px;
+                
+                filter: opacity(0);
+                transform-origin: 0 0;;
+                transform: scaleY(0.7);
+
+                border-bottom-left-radius: 6px;
+                border-bottom-right-radius: 6px;
+
+                transition: top 0.2s ease, filter 0.2s ease, transform 0.2s ease;
 
                 p {
                     padding: 0 6px;
@@ -106,7 +194,76 @@ nav {
                 }
 
                 li p:hover {
+                    color: $red;
                     text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+html:not([data-scroll='0']) {
+    .navWrapper {
+        padding-bottom: 2px;
+        box-shadow: 0px 2px 3px $soft-dark;
+        height: 6vh;
+    }
+
+    nav {
+        #logoSection {
+            img {
+                max-width: 105px;
+                max-height: 5.5vh;
+            }
+
+            h1 {
+                font-size: 16px;
+                transform: translateX(-125px);
+            }
+        }
+
+        #logoCutoff {
+            height: 6vh;
+        }
+
+        #navSection {
+
+            .dropdown {
+                top: calc(3vh + 25px);
+            }
+
+            .firstLayer {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (max-device-width: 1060px) {
+    nav {
+        #logoSection {
+            transform: translateX(-4vw);
+
+            transition: transform 0.2s ease;
+
+            h1 {
+                font-size: 20px;
+                width: 20px;
+            }
+        }
+    }
+
+    html:not([data-scroll='0']) {
+        nav {
+            #logoSection {
+                transform: translateX(-4.5vw);
+
+                img {
+                    max-width: 100px;
+                }
+
+                h1 {
+                    font-size: 12px;
                 }
             }
         }

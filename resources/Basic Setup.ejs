@@ -2,11 +2,15 @@
 
 <head>
     <%- include('./partials/head.ejs') %>
-    <!-- <link rel='stylesheet' href='/style/[filename].css'> -->
+    <!-- <link rel='stylesheet' href='/style/[file].css'> -->
 </head>
 
 <body>
-    <%- include('./partials/nav.ejs') %>
+    <% if (is_mobile) { %>
+        <%- include('./partials/mobileNav.ejs') %>
+    <% } else { %>
+        <%- include('./partials/desktopNav.ejs') %>
+    <% } %>
 
     <div id="pageContainer">
         <div id="contentWrap">

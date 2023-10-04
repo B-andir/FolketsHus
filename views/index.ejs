@@ -7,12 +7,21 @@
 </head>
 
 <body>
-    <%- include('./partials/nav.ejs') %>
+    <% if (is_mobile) { %>
+        <%- include('./partials/mobileNav.ejs') %>
+    <% } else { %>
+        <%- include('./partials/desktopNav.ejs') %>
+    <% } %>
 
     <div id="pageContainer">
         <div id="contentWrap">
-
-            <h1>Hello</h1>
+            <div id="landingBackground">
+                <div class="centralise">
+                    <h1>Ett Hus För Alla</h1>
+                    <h2>&#129123</h2>
+                </div>
+            </div>
+            
 
         </div>
         <%- include('./partials/footer.ejs') %>

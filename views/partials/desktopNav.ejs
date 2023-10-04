@@ -1,0 +1,64 @@
+<script src="/scripts/desktopNav.js"></script>
+
+<div class="navWrapper">
+    <nav id="nav" data-isMobile="<%- is_mobile %>">
+        <div class="flexElement1" id="logoSection">
+            <img id="logo" src="/images/Logo/FolketsHusTransparent-Cut-Large.png" alt="Logga" onclick="redirectToUrl('/')">
+            <div class="absolute" id="logoCutoff"></div>
+            <h1 onclick="redirectToUrl('/')">FOLKETS HUS<br>Hallstavik</h1>
+        </div>
+    
+        <ul class="flexElement2" id="navSection">
+            <li class="navElement dropdownButton" id="navElement1" onmouseover="showDropdownElement('bioRosenDropdown')" onmouseleave="hideDropdownElement('bioRosenDropdown')" onclick="redirectToUrl('filmer')">
+                <p class="firstLayer">Bio Rosen</p>
+                <p class="firstLayer dropdownArrow">></p>
+                <ul class="absolute dropdown hidden" id="bioRosenDropdown">
+                    <li id="dropdownElement">
+                        <p class="secondLayer" onclick="redirectToUrl('filmer')">Filmer</p>
+                    </li>
+                    <li id="dropdownElement">
+                        <p class="secondLayer" onclick="redirectToUrl('live-pa-bio')">Live På Bio</p>
+                    </li>
+                    <li id="dropdownElement">
+                        <p class="secondLayer" onclick="redirectToUrl('bio-kontrast')">Bio Kontrast</p>
+                    </li>
+                </ul>
+            </li>
+    
+            <li class="navElement" id="navElement2" onclick="redirectToUrl('unes-kok-bar')">
+                <p class="firstLayer">Unes Kök & Bar</p>
+            </li>
+    
+            <li class="navElement" id="navElement3" onclick="redirectToUrl('boka-lokal')">
+                <p class="firstLayer">Boka Lokal</p>
+            </li>
+    
+            <li class="navElement dropdownButton" id="navElement4" onmouseover="showDropdownElement('omOssDropdown')" onmouseleave="hideDropdownElement('omOssDropdown')" onclick="redirectToUrl('vi-som-jobbar-har')">
+                <p class="firstLayer">Om Oss</p>
+                <p class="firstLayer dropdownArrow">></p>
+                <ul class="absolute dropdown hidden" id="omOssDropdown">
+                    <li id="dropdownElement">
+                        <p class="secondLayer" onclick="redirectToUrl('vi-som-jobbar-har')">Vi Som Jobbar Här</p>
+                    </li>
+                    <li id="dropdownElement">
+                        <p class="secondLayer" onclick="redirectToUrl('om-huset')">Om Huset</p>
+                    </li>
+                    <li id="dropdownElement">
+                        <p class="secondLayer" onclick="redirectToUrl('folkets-hus-hallstavik-100-ar')">Folkets Hus Hallstavik 100 år</p>
+                    </li>
+                    <li id="dropdownElement">
+                        <p class="secondLayer" onclick="redirectToUrl('vara-hyresgaster')">Våra Hyresgäster</p>
+                    </li>
+                </ul>
+            </li>
+    
+            <li class="navElement" id="navElement5" onclick="redirectToUrl('kontakt')">
+                <p class="firstLayer">Kontakt</p>
+            </li>
+    
+        </ul>
+
+        
+        
+    </nav>
+</div>

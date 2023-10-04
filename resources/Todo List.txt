@@ -19,3 +19,10 @@ Navbar
 Footer
 
 Landing Page
+
+
+-> NEXT STEPS <-
+
+Basic landing page
+
+Mobile nav bar
