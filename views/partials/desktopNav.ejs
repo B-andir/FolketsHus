@@ -1,7 +1,9 @@
+<link rel="stylesheet" href="/style/desktopNav.css">
 <script src="/scripts/desktopNav.js"></script>
 
+<div id="hiddenHelper"></div>
 <div class="navWrapper">
-    <nav id="nav" data-isMobile="<%- is_mobile %>">
+    <nav id="nav" data-is-mobile="<%- is_mobile %>">
         <div class="flexElement1" id="logoSection">
             <img id="logo" src="/images/Logo/FolketsHusTransparent-Cut-Large.png" alt="Logga" onclick="redirectToUrl('/')">
             <div class="absolute" id="logoCutoff"></div>
@@ -52,7 +54,7 @@
                 </ul>
             </li>
     
-            <li class="navElement" id="navElement5" onclick="redirectToUrl('kontakt')">
+            <li class="navElement" id="navElement5 kontaktButton" onclick="kontaktButton()">
                 <p class="firstLayer">Kontakt</p>
             </li>
     

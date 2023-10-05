@@ -13,19 +13,30 @@
         <%- include('./partials/desktopNav.ejs') %>
     <% } %>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
     <div id="pageContainer">
         <div id="contentWrap">
-            <div id="landingBackground">
-                <div class="centralise">
-                    <h1>Ett Hus För Alla</h1>
-                    <h2>&#129123</h2>
+            <div id="landingBackground"></div>
+            <div id="landingBackgroundText">
+                <div id="landingTextContainer">
+                    <h1>Ett Hus<br>För Alla</h1>
+                    <h2>I Hjärtat av Hallstavik</h2>
+                </div>
+                <div id="arrowBorder">
+                    <span class="material-symbols-outlined" id="arrow">south</span>
                 </div>
             </div>
             
-
+            <div id="lowerContent">
+                <h2>Test</h2>
+            </div>
         </div>
         <%- include('./partials/footer.ejs') %>
     </div>
+
+    <script src="/scripts/homepage.js"></script>
 </body>
 
 </html>

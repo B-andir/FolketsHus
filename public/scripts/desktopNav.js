@@ -79,3 +79,10 @@ function hideDropdownElement(elementID) {
 
     toggleDropdownElement(elementID);
 }
+
+function kontaktButton() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: 
+            $("#footer").offset().top
+    }, 1200);
+}

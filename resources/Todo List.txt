@@ -23,6 +23,8 @@ Landing Page
 
 -> NEXT STEPS <-
 
-Basic landing page
 
-Mobile nav bar
+Implement dropdowns of mobile nav.
+	Remember the best practices article
+
+Detect what nav element user is currently on, and change its color, as well as dropdown "parent" state to open

@@ -1,3 +1,11 @@
+@import "partials/colors";
+
+
+#hiddenHelper {
+    display: none;
+    height: 6vh;
+}
+
 .navWrapper {
     z-index: 2;
     position: fixed;

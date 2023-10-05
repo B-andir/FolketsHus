@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="/style/mobileNav.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<script src="/scripts/mobileNav.js"></script>
+
+<div id="hiddenHelper"></div>
+<div class="navWrapper">
+    <div id="topBar">
+        <div id="logoContainer">
+            <img id="logo" src="/images/Logo/FolketsHusTransparent-Cut-Large.png" alt="Logga" onclick="redirectToUrl('/')"></img>
+            <div class="absolute" id="logoCutoff"></div>
+            <h1 onclick="redirectToUrl('/')">FOLKETS HUS<br>Hallstavik</h1>
+        </div>
+
+        <nav id="nav" data-is-mobile="<%- is_mobile %>">
+            <ul id="navSelection">
+                <li class="navElement" id="navElement1" onclick="redirectToUrl('/')">
+                    <p class="firstLayer" id="_">Hem</p>
+                </li>
+                <li class="navElement dropdownButton" id="navElement2">
+                    <p class="firstLayer" id="bio-rosen">Bio Rosen</p>
+                    <span class="material-symbols-outlined">expand_more</span>
+                    <ul class="absolute dropdown hidden" id="bioRosenDropdown">
+                        <li class="dropdownElement">
+                            <p class="secondLayer" id="filmer" onclick="redirectToUrl('bio-rosen/filmer')">Filmer</p>
+                        </li>
+                        <li class="dropdownElement">
+                            <p class="secondLayer" id="live-pa-bio" onclick="redirectToUrl('bio-rosen/live-pa-bio')">Live På Bio</p>
+                        </li>
+                        <li class="dropdownElement">
+                            <p class="secondLayer" id="bio-kontrast" onclick="redirectToUrl('bio-rosen/bio-kontrast')">Bio Kontrast</p>
+                        </li>
+                    </ul>
+                </li>
+        
+                <li class="navElement" id="navElement3" onclick="redirectToUrl('unes-kok-bar')">
+                    <p class="firstLayer" id="unes-kok-bar">Unes Kök & Bar</p>
+                </li>
+        
+                <li class="navElement" id="navElement4" onclick="redirectToUrl('boka-lokal')">
+                    <p class="firstLayer" id="boka-lokal">Boka Lokal</p>
+                </li>
+        
+                <li class="navElement dropdownButton" id="navElement5">
+                    <p class="firstLayer" id="om-oss">Om Oss</p>
+                    <span class="material-symbols-outlined">expand_more</span>
+                    <ul class="absolute dropdown hidden" id="omOssDropdown">
+                        <li class="dropdownElement">
+                            <p class="secondLayer" id="vi-som-jobbar-har" onclick="redirectToUrl('om-oss/vi-som-jobbar-har')">Vi Som Jobbar Här</p>
+                        </li>
+                        <li class="dropdownElement">
+                            <p class="secondLayer" id="om-huset" onclick="redirectToUrl('om-oss/om-huset')">Om Huset</p>
+                        </li>
+                        <li class="dropdownElement">
+                            <p class="secondLayer" id="folkets-hus-hallstavik-100-ar" onclick="redirectToUrl('om-oss/folkets-hus-hallstavik-100-ar')">Folkets Hus Hallstavik 100 år</p>
+                        </li>
+                        <li class="dropdownElement">
+                            <p class="secondLayer" id="vara-hyresgaster" onclick="redirectToUrl('om-oss/vara-hyresgaster')">Våra Hyresgäster</p>
+                        </li>
+                    </ul>
+                </li>
+        
+                <li class="navElement" id="navElement6 kontaktButton" onclick="kontaktButton()">
+                    <p class="firstLayer">Kontakt</p>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="burgerButton" onclick="burgerClicked()">
+            <div class="burgerLine" id="topLine"></div>
+            <div class="burgerLine" id="middleLine"></div>
+            <div class="burgerLine" id="bottomLine"></div>
+        </div>
+        
+    </div>
+</div>
+
+<script>
+burgerClicked();
+</script>
