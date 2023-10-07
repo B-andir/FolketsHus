@@ -57,6 +57,7 @@
             h1 {
                 position: relative;
                 z-index: 1;
+                left: 0;
                 margin-left: 10px;
                 font-family: 'Roboto', sans-serif;
                 color: black;
@@ -323,8 +324,8 @@ html:not([data-scroll='0']) {
 
                 h1 {
                     font-size: 14px;
-                    transform: translateX(-125px);
-                    // left: max(-20vh, -20vw);
+                    // transform: translateX(-125px);
+                    left: max(-125px);
                 }
             }
         }
