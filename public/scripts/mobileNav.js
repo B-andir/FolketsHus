@@ -1,4 +1,8 @@
 var burgerOpen = false;
+var scrollStartValue = 0;
+var scrollBefore = 0;
+
+var screenHeight = screen.height;
 
 function redirectToUrl(url) {
     window.location.href = "/" + url;
@@ -6,19 +10,38 @@ function redirectToUrl(url) {
 
 function burgerClicked() {
     if (!burgerOpen) {  // If closed and should open
+        
+        // Scroll to top of page
+        // $([document.documentElement, document.body]).animate({
+        //     scrollTop: 
+        //         $("#nav").offset().top
+        // }, 800);
+        document.querySelector('nav').style.top = 0;
+
         // Make burger menu a cross
         document.getElementById('topLine').setAttribute('id', 'topLineCross');
         document.getElementById('middleLine').setAttribute('id', 'middleLineCross');
         document.getElementById('bottomLine').setAttribute('id', 'bottomLineCross');
         
-        disableScroll();
+        // disableScroll();
 
         $('#nav').css({display: 'flex'});
+        $('#blurredBackground').css({
+            display: 'block',
+        })
+
+        setTimeout( () => {
+            $('#blurredBackground').css({
+                opacity: '1',
+            })
+        }, 1)
 
         $('#nav').animate({
             opacity: '1',
-            left: '0px',
+            left: '30vw',
         }, 250, 'swing');
+
+        scrollBefore = scrollStartValue = window.scrollY;
 
     } 
     
@@ -28,15 +51,28 @@ function burgerClicked() {
         document.getElementById('middleLineCross').setAttribute('id', 'middleLine');
         document.getElementById('bottomLineCross').setAttribute('id', 'bottomLine');
 
-        enableScroll();
+        // enableScroll();
+
+        $('#blurredBackground').css({
+            opacity: '0',
+        })
+
+        setTimeout( () => {
+            $('#blurredBackground').css({
+                display: 'none',
+            })
+        }, 200)
 
         $('#nav').animate({
             opacity: '0',
-            left: '70vw',
+            left: '100vw',
         }, 200, 'swing');
 
         setTimeout( () => {
-            $('#nav').css({display: 'none'});
+            $('#nav').css({
+                display: 'none',
+                marginTop: '0px'
+            });
         }, 250);
 
     }
@@ -45,6 +81,43 @@ function burgerClicked() {
     burgerOpen = !burgerOpen;
 }
 
+var marginTop = 0;
+var marginTopLimit = 50;
+
+var i = 0;
+
+function scrollNav() {
+    if (!burgerOpen) return;
+
+
+    let nav = document.querySelector('nav');
+    let scrollUp = scrollBefore > window.scrollY ? true : false;
+
+    let diff = scrollBefore - window.scrollY;
+    let top = nav.getBoundingClientRect().top
+    let bottom = nav.getBoundingClientRect().bottom
+
+    // console.log(diff);
+
+    if (scrollUp) {
+        // Scrolling up
+        if (top < 0) {
+            nav.style.top = top + diff;
+        }
+
+    } else if (!scrollUp) {
+        // Scrolling down
+        if (bottom > screenHeight) {
+            nav.style.top = top + diff;
+        }
+
+    }
+
+    scrollBefore = window.scrollY;
+
+}
+
+document.addEventListener('scroll', scrollNav, false);
 
 // Close Nav on Swipe Right, Scroll Nav on Swipe Up/Down
 document.addEventListener('touchstart', handleTouchStart, false);        

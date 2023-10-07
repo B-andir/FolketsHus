@@ -19,6 +19,7 @@
     transition: padding 0.2s ease, box-shadow 0.2s ease, height 0.2s ease;
 
     #topBar {
+        z-index: 8;
         width: calc(100vw - 6vh);
         padding: 1vh 3vh;
         height: 10vh;
@@ -31,6 +32,7 @@
         transition: height 0.2s ease, padding 0.2s ease;
 
         #logoContainer {
+            z-index: 15;
             height: 8vh;
             padding-top: 2vh;
             padding-bottom: 2vh;
@@ -68,6 +70,7 @@
                 font-family: 'Roboto', sans-serif;
                 color: black;
                 font-size: 2.3vh;
+                width: max-content;
 
                 transition: font-size 0.2s ease, transform 0.4s ease;
             }
@@ -80,7 +83,7 @@
             z-index: 10;
             height: 80%;
             aspect-ratio: 1 / 1;
-            // background-color: $red;
+            background-color: rgba($main, 0.8);
             border-radius: 100%;
 
             display: flex;
@@ -136,23 +139,26 @@
     nav {
         display: none;
         z-index: 10;
-        position: fixed;
-        top: 0;
+        position: absolute;
+        top: 0px;
     
-        width: 80vw;
-        padding-left: 20vw;
-        height: 88vh;
-        padding-top: 12vh;
+        width: 60vw;
+        height: fit-content;
+        padding: 10vh 0 12vh 10vw;
+
+        border-bottom: 1px solid $soft-dark;
+        border-bottom-left-radius: 5px;
     
         background-color: $main;
 
         opacity: 0;
 
-        left: 70vw;
+        left: 100vw;
 
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
+
 
 
 
@@ -271,6 +277,23 @@
             }
         }
     }
+}
+
+#blurredBackground {
+    display: none;
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(white, 0.2);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
 }
 
 html:not([data-scroll='0']) {
