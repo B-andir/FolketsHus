@@ -7,62 +7,95 @@
 <div class="navWrapper">
     <div id="topBar">
         <div id="logoContainer">
-            <img id="logo" src="/images/Logo/FolketsHusTransparent-Cut-Large.png" alt="Logga" onclick="redirectToUrl('/')"></img>
+            <img id="logo" src="/images/Logo/FolketsHusTransparent-Cut-Large.png" alt="Logga" onclick="redirectToUrl('')"></img>
             <div class="absolute" id="logoCutoff"></div>
-            <h1 onclick="redirectToUrl('/')">FOLKETS HUS<br>Hallstavik</h1>
+            <h1 onclick="redirectToUrl('')">FOLKETS HUS<br>Hallstavik</h1>
         </div>
 
-        <nav id="nav" data-is-mobile="<%- is_mobile %>">
+        <nav id="nav" data-is-mobile="true">
             <ul id="navSelection">
+
+                <li class="seperatorLine"></li>
+                <li class="seperatorLine"></li>
+
                 <li class="navElement" id="navElement1" onclick="redirectToUrl('/')">
-                    <p class="firstLayer" id="_">Hem</p>
+                    <p class="firstLayer a" id="_">Hem</p>
                 </li>
-                <li class="navElement dropdownButton" id="navElement2">
-                    <p class="firstLayer" id="bio-rosen">Bio Rosen</p>
+
+                <li class="seperatorLine"></li>
+                <li class="seperatorLine"></li>
+
+                <li class="navElement dropdownButton" id="navElement2" onclick="dropdownClicked()" data-open="false">
+                    <p class="firstLayer isDropdown" id="bio-rosen">Bio Rosen</p>
                     <span class="material-symbols-outlined">expand_more</span>
-                    <ul class="absolute dropdown hidden" id="bioRosenDropdown">
-                        <li class="dropdownElement">
-                            <p class="secondLayer" id="filmer" onclick="redirectToUrl('bio-rosen/filmer')">Filmer</p>
-                        </li>
-                        <li class="dropdownElement">
-                            <p class="secondLayer" id="live-pa-bio" onclick="redirectToUrl('bio-rosen/live-pa-bio')">Live På Bio</p>
-                        </li>
-                        <li class="dropdownElement">
-                            <p class="secondLayer" id="bio-kontrast" onclick="redirectToUrl('bio-rosen/bio-kontrast')">Bio Kontrast</p>
-                        </li>
-                    </ul>
                 </li>
+                
+                <li class="seperatorLine"></li>
+                
+                <ul class="dropdown" id="bio-rosen-dropdown">
+                    <li class="dropdownElement">
+                        <p class="secondLayer a" id="filmer" onclick="redirectToUrl('bio-rosen/filmer')">Filmer</p>
+                    </li>
+                    <li class="seperatorLine"></li>
+                    <li class="dropdownElement">
+                        <p class="secondLayer a" id="live-pa-bio" onclick="redirectToUrl('bio-rosen/live-pa-bio')">Live På Bio</p>
+                    </li>
+                    <li class="seperatorLine"></li>
+                    <li class="dropdownElement">
+                        <p class="secondLayer a" id="bio-kontrast" onclick="redirectToUrl('bio-rosen/bio-kontrast')">Bio Kontrast</p>
+                    </li>
+                </ul>
+                
+                <li class="seperatorLine"></li>
         
                 <li class="navElement" id="navElement3" onclick="redirectToUrl('unes-kok-bar')">
-                    <p class="firstLayer" id="unes-kok-bar">Unes Kök & Bar</p>
+                    <p class="firstLayer a" id="unes-kok-bar">Unes Kök & Bar</p>
                 </li>
+                
+                <li class="seperatorLine"></li>
+                <li class="seperatorLine"></li>
         
                 <li class="navElement" id="navElement4" onclick="redirectToUrl('boka-lokal')">
-                    <p class="firstLayer" id="boka-lokal">Boka Lokal</p>
+                    <p class="firstLayer a" id="boka-lokal">Boka Lokal</p>
                 </li>
+                
+                <li class="seperatorLine"></li>
+                <li class="seperatorLine"></li>
         
-                <li class="navElement dropdownButton" id="navElement5">
-                    <p class="firstLayer" id="om-oss">Om Oss</p>
+                <li class="navElement dropdownButton" id="navElement5" onclick="dropdownClicked()" data-open="false">
+                    <p class="firstLayer isDropdown" id="om-oss">Om Oss</p>
                     <span class="material-symbols-outlined">expand_more</span>
-                    <ul class="absolute dropdown hidden" id="omOssDropdown">
-                        <li class="dropdownElement">
-                            <p class="secondLayer" id="vi-som-jobbar-har" onclick="redirectToUrl('om-oss/vi-som-jobbar-har')">Vi Som Jobbar Här</p>
-                        </li>
-                        <li class="dropdownElement">
-                            <p class="secondLayer" id="om-huset" onclick="redirectToUrl('om-oss/om-huset')">Om Huset</p>
-                        </li>
-                        <li class="dropdownElement">
-                            <p class="secondLayer" id="folkets-hus-hallstavik-100-ar" onclick="redirectToUrl('om-oss/folkets-hus-hallstavik-100-ar')">Folkets Hus Hallstavik 100 år</p>
-                        </li>
-                        <li class="dropdownElement">
-                            <p class="secondLayer" id="vara-hyresgaster" onclick="redirectToUrl('om-oss/vara-hyresgaster')">Våra Hyresgäster</p>
-                        </li>
-                    </ul>
                 </li>
+                
+                <li class="seperatorLine"></li>
+        
+                <ul class="dropdown" id="om-oss-dropdown">
+                    <li class="dropdownElement">
+                        <p class="secondLayer a" id="vi-som-jobbar-har" onclick="redirectToUrl('om-oss/vi-som-jobbar-har')">Vi Som Jobbar Här</p>
+                    </li>
+                    <li class="seperatorLine"></li>
+                    <li class="dropdownElement">
+                        <p class="secondLayer a" id="om-huset" onclick="redirectToUrl('om-oss/om-huset')">Om Huset</p>
+                    </li>
+                    <li class="seperatorLine"></li>
+                    <li class="dropdownElement">
+                        <p class="secondLayer a" id="folkets-hus-hallstavik-100-ar" onclick="redirectToUrl('om-oss/folkets-hus-hallstavik-100-ar')">Folkets Hus<br>Hallstavik 100 år</p>
+                    </li>
+                    <li class="seperatorLine"></li>
+                    <li class="dropdownElement">
+                        <p class="secondLayer a" id="vara-hyresgaster" onclick="redirectToUrl('om-oss/vara-hyresgaster')">Våra Hyresgäster</p>
+                    </li>
+                </ul>
+
+                <li class="seperatorLine"></li>
         
                 <li class="navElement" id="navElement6 kontaktButton" onclick="kontaktButton()">
-                    <p class="firstLayer">Kontakt</p>
+                    <p class="firstLayer a">Kontakt</p>
                 </li>
+
+                <li class="seperatorLine"></li>
+                <li class="seperatorLine"></li>
+
             </ul>
         </nav>
 
@@ -74,7 +107,3 @@
         
     </div>
 </div>
-
-<script>
-burgerClicked();
-</script>

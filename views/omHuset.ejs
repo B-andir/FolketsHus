@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <%- include('./partials/head.ejs') %>
+    <!-- <link rel='stylesheet' href='/style/[file].css'> -->
+</head>
+
+<body>
+    <% if (is_mobile) { %>
+        <%- include('./partials/mobileNav.ejs') %>
+    <% } else { %>
+        <%- include('./partials/desktopNav.ejs') %>
+    <% } %>
+
+    <div id="pageContainer">
+        <div id="contentWrap">
+
+            <!-- [content] -->
+
+        </div>
+        <%- include('./partials/footer.ejs') %>
+    </div>
+</body>
+
+</html>

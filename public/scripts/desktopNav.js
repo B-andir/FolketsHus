@@ -1,7 +1,7 @@
 var showElements = new Map();
 
 function redirectToUrl(url) {
-    location.href = url;
+    window.location.href = "/" + url;
 }
 
 function triggerToggleDropdownElement(elementID, parent) {
