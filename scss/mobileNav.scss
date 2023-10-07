@@ -72,6 +72,9 @@
                 font-size: 1.1rem;
                 width: 100%;
 
+                -webkit-perspective: 10px; 
+                -webkit-backface-visibility: visible;
+
                 transition: font-size 0.2s ease, transform 0.6s ease;
             }
         }
