@@ -69,10 +69,10 @@
                 margin-left: 10px;
                 font-family: 'Roboto', sans-serif;
                 color: black;
-                font-size: 2.3vh;
-                width: max-content;
+                font-size: 1.1rem;
+                width: 100%;
 
-                transition: font-size 0.2s ease, transform 0.4s ease;
+                transition: font-size 0.2s ease, transform 0.6s ease;
             }
         }
 
@@ -320,8 +320,8 @@ html:not([data-scroll='0']) {
                 }
 
                 h1 {
-                    font-size: 14px;
-                    transform: translateX(-110px);
+                    // font-size: 14px;
+                    transform: translateX(-8.5rem);
                 }
             }
         }
