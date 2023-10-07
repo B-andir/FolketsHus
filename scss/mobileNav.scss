@@ -65,17 +65,16 @@
             }
 
             h1 {
+                position: absolute;
+                left: 12.5vh;
                 z-index: 1;
                 margin-left: 10px;
                 font-family: 'Roboto', sans-serif;
                 color: black;
                 font-size: 1.1rem;
-                width: 100%;
+                width: max-content;
 
-                -webkit-perspective: 10px; 
-                -webkit-backface-visibility: visible;
-
-                transition: font-size 0.2s ease, transform 0.6s ease;
+                transition: font-size 0.2s ease, transform 0.6s ease, left 0.8s ease;
             }
         }
 
@@ -324,7 +323,8 @@ html:not([data-scroll='0']) {
 
                 h1 {
                     // font-size: 14px;
-                    transform: translateX(-8.5rem);
+                    // transform: translateX(-8.5rem);
+                    left: max(-20vh, -20vw);
                 }
             }
         }
