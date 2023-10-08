@@ -1,0 +1,32 @@
+<% 
+    function getTimeString(min) {
+        var result = "";
+
+        if (min > 60) {
+            let divisor = parseInt(min / 60);
+            // result = divisor + ' h ' + min - (divisor * 60) + ' min';
+            result = divisor + ' h ' + (min - (divisor * 60)) + ' min';
+        } else {
+            result = min + ' min';
+        }
+
+        return result;
+    }
+%>
+
+<div class="filmElement" id="filmElement<%- id %>">
+    <%# console.log(element.name) %>
+    <img src="<%= film.posterURL %>">
+    <div class="mainBody">
+        <h2><%= film.name %></h2>
+        <p class="genre"><%= film.genre %></p>
+        <p class="runtime"><%= getTimeString(film.runtime) %></p>
+        <p class="ageRating">
+            <% if (film.ageRating != '') { %>
+                Åldersgräns: <%= film.ageRating %>
+            <% } else { %>
+                Ingen Åldersgräns
+            <% } %>
+        </p>
+    </div>
+</div>

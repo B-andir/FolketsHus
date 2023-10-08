@@ -1,8 +1,9 @@
-<html>
+<html data-is-mobile=<%- is_mobile %>>
 
 <head>
     <%- include('./partials/head.ejs') %>
     <link rel='stylesheet' href='/style/filmer.css'>
+    <script src="/scripts/filmer.js"></script>
 </head>
 
 <body>
@@ -15,11 +16,66 @@
     <div id="pageContainer">
         <main id="contentWrap">
 
-            <!-- [content] -->
+            <!-- Information -->
+            <div id="information">
+                <div class="informationElement">
+                    <div class="header" onclick="informationClicked()">
+                        <h2>Åldersgränser på bio</h2>
+                        <span class="material-symbols-outlined expandArrow rightElement">expand_less</span>
+                        <span class="material-symbols-outlined info rightElement">info</span>
+                    </div>
+                    <div class="content">
+                            <p>
+                                <span class="bold">7-årsgräns:</span> innebär att man måste ha fyllt 7 år för att få se filmen utan vuxet sällskap. I vuxet sällskap får man se filmen oavsett ålder.
+                            </p>
+                            <p>
+                                <span class="bold">11-årsgräns:</span> innebär att man måste ha fyllt 11 år för att få se filmen utan vuxet sällskap, eller 7 år i vuxet sällskap.
+                            </p>
+                            <p>
+                                <span class="bold">15-årsgräns:</span> innehär att man måste ha fyllt 15 år för att få se filmen utan vuxet sällskap, eller 11 år i vuxet sällskap.
+                            </p>
+                            <p style="font-style: italic;">
+                                Vuxen person räknas den som fyllt 18 år.
+                            </p>
+                    </div>
+                </div>
+                <div class="informationElement">
+                    <div class="header" onclick="informationClicked()">
+                        <h2>Förköp av biljetter</h2>
+                        <span class="material-symbols-outlined expandArrow rightElement">expand_less</span>
+                        <span class="material-symbols-outlined info rightElement">info</span>
+                    </div>
+                    <div class="content">
+                        <p>
+                            Förköp av biljetter kan göras direkt på hemsidan eller på vår expedition mån-fre 10-13. Vår expedition finns en trappa upp, ingång biblioteket.
+                        </p>
+                        <p>
+                            Under varje film finns en länk till bokningssidan där du kan förboka din sittplats i salongen, om du inte väljer sittplats själv blir du bokad på ledig plats av systemet istället.
+                        </p>
+                        <p>
+                            <span class="bold">OBS!</span> Om du vill använda en SF-biljett (vi tar endast pappersbiljetter, inte SF-kort) måste ni förboka plats genom oss istället för via hemsidan. Då löser ni biljett på vår expedition i förväg eller i kassan när ni kommer. Samma gäller om ni har ett presentkort från oss på Bio Rosen.
+                        </p>
+                        <p>
+                            <span class="bold">Vi återlöser inte förköpta biljetter.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Uppkommande Filmer -->
+            <div id="moviesContainer">
+                <h1>Uppkomande Filmer</h1>
+                <div id="moviesList" data-list-type="normal">
+                    <% for (let index = 1; index < Object.keys(films).length + 1; index++) { const element = films[index]; %>
+                        <%- include('./partials/filmElement.ejs', { film: element, id: index }) %>
+                    <% } %>
+                </div>
+            </div>
 
         </main>
         <%- include('./partials/footer.ejs') %>
     </div>
+
 </body>
 
 </html>

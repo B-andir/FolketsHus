@@ -62,7 +62,7 @@
     position: relative;
 
     width: 100vw;
-    height: 105vh;
+    height: 95vh;
 
     display: flex;
     flex-direction: column;
@@ -167,7 +167,7 @@
 @media screen and (max-device-width: 600px) {
     #landingBackgroundText {
         justify-content: start;
-        top: 20vh;
+        top: 10vh;
         gap: 8vh; 
         
         #arrowBorder {
