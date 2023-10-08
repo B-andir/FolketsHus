@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
+router.get('/', (req, res) => {
+    res.redirect('om-oss/vi-som-jobbar-har');
+});
+
 router.get('/vi-som-jobbar-har', (req, res) => {
     res.render('viSomJobbarHar', { title: 'Vi Som Jobbar Här' });
 });

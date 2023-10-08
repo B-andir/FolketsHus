@@ -11,7 +11,15 @@
         <div id="logoContainer">
             <img id="logo" src="/images/Logo/FolketsHusTransparent-Cut-Large.png" alt="Logga" onclick="redirectToUrl('')"></img>
             <div class="absolute" id="logoCutoff"></div>
-            <h1 onclick="redirectToUrl('')">FOLKETS HUS<br>Hallstavik</h1>
+            <h1 onclick="redirectToUrl('')">
+                <% try { %>
+                    <span style="text-transform: uppercase;"><%- uniqueTitle %></span>
+                <% } catch { %>
+                    <span style="text-transform: uppercase;">Folkets Hus</span>
+                <% } %>
+                <br>
+                <span style="text-transform: none;">Hallstavik</span>
+            </h1>
         </div>
         
         

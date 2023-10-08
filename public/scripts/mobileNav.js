@@ -38,7 +38,7 @@ function burgerClicked() {
 
         $('#nav').animate({
             opacity: '1',
-            left: '30vw',
+            left: '0vw',
         }, 250, 'swing');
 
         scrollBefore = scrollStartValue = window.scrollY;
@@ -81,45 +81,7 @@ function burgerClicked() {
     burgerOpen = !burgerOpen;
 }
 
-var marginTop = 0;
-var marginTopLimit = 50;
-
-var i = 0;
-
-function scrollNav() {
-    if (!burgerOpen) return;
-
-
-    let nav = document.querySelector('nav');
-    let scrollUp = scrollBefore > window.scrollY ? true : false;
-
-    let diff = scrollBefore - window.scrollY;
-    let top = nav.getBoundingClientRect().top
-    let bottom = nav.getBoundingClientRect().bottom
-
-    // console.log(diff);
-
-    if (scrollUp) {
-        // Scrolling up
-        if (top < 0) {
-            nav.style.top = top + diff;
-        }
-
-    } else if (!scrollUp) {
-        // Scrolling down
-        if (bottom > screenHeight) {
-            nav.style.top = top + diff;
-        }
-
-    }
-
-    scrollBefore = window.scrollY;
-
-}
-
-document.addEventListener('scroll', scrollNav, false);
-
-// Close Nav on Swipe Right, Scroll Nav on Swipe Up/Down
+// Close Nav on Swipe Right
 document.addEventListener('touchstart', handleTouchStart, false);        
 document.addEventListener('touchmove', handleTouchMove, false);
 
@@ -155,7 +117,7 @@ function handleTouchMove(evt) {
             /* right swipe */
         } else {
             /* left swipe */
-            if (burgerOpen && xDiff <= 10) {
+            if (burgerOpen && xDiff <= 15) {
                 burgerClicked();
             }
         }                       
@@ -174,6 +136,7 @@ function handleTouchMove(evt) {
     yDown = null;                                             
 };
 
+
 // Navigation
 
 var alreadyOpen = null;
@@ -191,8 +154,6 @@ function dropdownClicked(target = event.target, close = null) {
     let dropdown = $('#' + dropdownID);
     let allDropdownP = $('#' + target.parentElement.childNodes.item(1).id + '-dropdown p');
     let allSeperatorLines = $('#' + dropdownID + " .seperatorLine");
-
-    let DOMDropdown = document.getElementById(dropdownID);
 
     if (value == "true" || close == true) {
         // If open and should close
@@ -227,12 +188,6 @@ function dropdownClicked(target = event.target, close = null) {
             }
         }, 5);
 
-
-        // setTimeout( () => {
-        //     if (dropdown.data('should-close') == false) return;
-        //     document.getElementById(dropdownID).classList.add('hidden');
-        // }, 300);
-
         alreadyOpen = null;
     } else if (value == "false") {
         // If closed and should open
@@ -245,8 +200,6 @@ function dropdownClicked(target = event.target, close = null) {
 
         dropdownArrow.style.transform = "scaleY(-1)";
         dropdown.data('should-close', false);
-
-        // document.getElementById(dropdownID).classList.remove('hidden');
 
         setTimeout( () => {
             if (dropdown.data('should-close') == true) return;

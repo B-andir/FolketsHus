@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
+router.get('/', (req, res) => {
+    res.redirect('/bio-rosen/filmer');
+})
+
 router.get('/filmer', (req, res) => {
     res.render('filmer', { title: 'Filmer', uniqueTitle: 'Bio Rosen' });
 });
