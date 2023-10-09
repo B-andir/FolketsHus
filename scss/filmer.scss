@@ -26,6 +26,12 @@ main {
 
         transition: top 0.2s ease;
 
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        scrollbar-width: none;
+
         .informationElement {
             padding: 0px 2vw 0px 1vw;
             background-color: $main-dark;
