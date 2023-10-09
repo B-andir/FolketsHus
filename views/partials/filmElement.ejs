@@ -12,6 +12,24 @@
 
         return result;
     }
+
+    let weekdays = ['Sön', 'Mån', 'Tis', 'Ons', 'Tors', 'Fre', 'Lör']
+
+    function getDateString(dateStr) {
+        let date = new Date(dateStr);
+        let string = "";
+        let spanDate = "<span class='date'>";
+        let spanTime = "<span class='time'>";
+        let spanEnd = "</span>";
+        
+        string += weekdays[date.getDay()] + " ";
+
+        string += spanDate + date.getDate() + "/" + (date.getMonth() + 1) + spanEnd + " ";
+
+        string += spanTime + date.getHours() + ":" + (date.getMinutes() == 0 ? '00' : date.getMinutes()) + spanEnd;
+        
+        return string;
+    }
 %>
 
 <div class="filmElement" id="filmElement<%- id %>">
@@ -21,6 +39,7 @@
         <h2><%= film.name %></h2>
         <p class="genre"><%= film.genre %></p>
         <p class="runtime"><%= getTimeString(film.runtime) %></p>
+        <p class="runDate"><%- getDateString(film.date) %></p>
         <p class="ageRating">
             <% if (film.ageRating != '') { %>
                 Åldersgräns: <%= film.ageRating %>

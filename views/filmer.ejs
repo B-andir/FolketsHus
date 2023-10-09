@@ -76,6 +76,12 @@
         <%- include('./partials/footer.ejs') %>
     </div>
 
+    <script>
+
+        document.querySelector('main').style.paddingBottom = (document.querySelector('footer').offsetHeight - 1) + "px";
+
+    </script>
+
 </body>
 
 </html>
