@@ -26,7 +26,7 @@ main {
 
         transition: top 0.2s ease;
 
-        ::-webkit-scrollbar {
+        &::-webkit-scrollbar {
             display: none;
         }
 
