@@ -8,7 +8,8 @@
 .navWrapper {
     z-index: 8;
     position: fixed;
-    width: 100vw;
+    width: fit-content;
+    max-width: 100%;
     padding-bottom: 1.5vh;
     
     background: rgb(184,13,13);
@@ -20,8 +21,9 @@
 
     #topBar {
         z-index: 8;
-        width: calc(100vw - 6vh);
-        padding: 1vh 3vh;
+        width: calc(100vw - 6vw);
+        max-width: 100%;
+        padding: 1vh 3vw;
         height: 10vh;
         background-color: $main;
 

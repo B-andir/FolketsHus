@@ -20,7 +20,7 @@ main {
         display: flex;
         flex-direction: column;
 
-        overflow: scroll;
+        overflow-y: scroll;
 
         box-shadow: 0 0 4px $soft-dark;
 
@@ -228,27 +228,33 @@ main {
 }
 
 @media only screen and (max-width: 1500px) {
-    main {
-        font-size: 0.9rem;
+    html:has([data-is-mobile = 'false']) {
+        main {
+            font-size: 0.9rem;
+        }
+        
     }
 }
 
 @media only screen and (max-width: 1280px) {
-    main {
-        #moviesContainer {
-            width: 75%;
-
-            #moviesList {
-
-                justify-content: space-between;
-
-                // column-gap: 19.28%;
-
-                .filmElement {
-                    width: 35%;
+    html:has([data-is-mobile = 'false']) {
+        main {
+            #moviesContainer {
+                width: 75%;
+    
+                #moviesList {
+    
+                    justify-content: space-between;
+    
+                    // column-gap: 19.28%;
+    
+                    .filmElement {
+                        width: 35%;
+                    }
                 }
             }
         }
+
     }
 
 
@@ -281,50 +287,53 @@ main {
 
 @media only screen and (max-width: 1000px) and (min-width: 820px) {
 
-    main {
-        #moviesContainer {
-            #moviesList {
-                flex-wrap: nowrap;
-                flex-direction: column;
-
-                .filmElement {
-                    padding: 2vh 5%;
-                    width: 90%;
-
-                    .mainBody {
-                        display: grid;
-                        grid-template-columns: repeat(4, 1fr);
-                        grid-template-rows: 4fr 2fr;
-                        width: 100%;
-                        height: 95%;
-                    }
-
-                    h2 {
-                        grid-area: 1 1;
-                        position: absolute;
-                        align-self: flex-start;
-                        justify-self: flex-start;
-                    }
-
-                    p {
-                        grid-row: 2;
-                        margin: 0 !important;
-                        font-size: 1em !important;
-                        height: max-content !important;
-                        width: 80%;
-                        border-right: 1px solid black;
-                        padding: 0 !important;
-                        padding-right: 5% !important;
-                        align-self: flex-end;
-
-                        &.ageRating {
-                            width: max-content;
-                            justify-self: center !important;
+    html:has([data-is-mobile = 'false']) {
+        main {
+            #moviesContainer {
+                #moviesList {
+                    flex-wrap: nowrap;
+                    flex-direction: column;
+    
+                    .filmElement {
+                        padding: 2vh 5%;
+                        width: 90%;
+    
+                        .mainBody {
+                            display: grid;
+                            grid-template-columns: repeat(4, 1fr);
+                            grid-template-rows: 4fr 2fr;
+                            width: 100%;
+                            height: 95%;
+                        }
+    
+                        h2 {
+                            grid-area: 1 1;
+                            position: absolute;
+                            align-self: flex-start;
+                            justify-self: flex-start;
+                        }
+    
+                        p {
+                            grid-row: 2;
+                            margin: 0 !important;
+                            font-size: 1em !important;
+                            height: max-content !important;
+                            width: 80%;
+                            border-right: 1px solid black;
+                            padding: 0 !important;
+                            padding-right: 5% !important;
+                            align-self: flex-end;
+    
+                            &.ageRating {
+                                width: max-content;
+                                justify-self: center !important;
+                            }
                         }
                     }
                 }
             }
         }
+        
     }
 }
 
@@ -366,6 +375,11 @@ html:not([data-scroll='0']) {
 
 // Mobile
 html:has([data-is-mobile = 'true']) {
+
+    body {
+        width: 100vw;
+    }
+
     main {
         display: flex;
         flex-direction: column;
@@ -374,22 +388,32 @@ html:has([data-is-mobile = 'true']) {
             position: relative;
             top: 13.5vh;
             width: 100%;
-            overflow: visible !important;
+            overflow-y: visible !important;
+
+            transition: top 0.8s ease-out;
 
             .header {
                 padding: 0.5vh 8vw;
+                width: 84vw !important;
+                justify-content: flex-start;
 
                 h2 {
+                    text-align: left;
+                    width: 100% !important;
                     width: auto;
                 }
             }
         }
 
         #moviesContainer {
+            position: relative !important;
+            // top: 12vh;
             align-self: center;
             position: relative;
-            padding-top: 12vh;
+            padding-top: 0vh;
             width: 95%;
+
+            transition: top 0.4s ease;
 
             #moviesList {
 
@@ -430,7 +454,11 @@ html:has([data-is-mobile = 'true']) {
         main {
     
             #information {
-                top: 11vh;
+                top: -10vh;
+            }
+
+            #moviesContainer {
+                top: 2vh !important;
             }
         }
     }

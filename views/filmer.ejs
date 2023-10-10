@@ -78,7 +78,10 @@
 
     <script>
 
-        document.querySelector('main').style.paddingBottom = (document.querySelector('footer').offsetHeight - 1) + "px";
+        document.querySelector('#moviesContainer').style.paddingBottom = (document.querySelector('footer').offsetHeight - 1) + "px";
+        document.querySelector('#moviesContainer').style.top = (document.querySelector('#information').offsetHeight);
+
+        // console.log(document.querySelector('#filmElement1 .poster').src)
 
     </script>
 

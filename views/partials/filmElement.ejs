@@ -34,9 +34,9 @@
 
 <div class="filmElement" id="filmElement<%- id %>">
     <%# console.log(element.name) %>
-    <img src="<%= film.posterURL %>">
+    <img class="poster" src="<%= film.posterURL %>">
     <div class="mainBody">
-        <h2><%= film.name %></h2>
+        <h2 class="title"><%= film.name %></h2>
         <p class="genre"><%= film.genre %></p>
         <p class="runtime"><%= getTimeString(film.runtime) %></p>
         <p class="runDate"><%- getDateString(film.date) %></p>
