@@ -379,11 +379,13 @@ html:has([data-is-mobile = 'true']) {
 
     body {
         width: 100vw;
+        background-color: aqua;
     }
 
     main {
         display: flex;
         flex-direction: column;
+        background-color: aqua;
 
         width: 100% !important;
 
