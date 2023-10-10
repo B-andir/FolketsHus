@@ -72,18 +72,36 @@
                 </div>
             </div>
 
+            <div class="hidden" id="inspectMovieBackground" onclick="inspectBackgroundClicked()"></div>
+            <div class="hidden" id="inspectMovie">
+                <div id="inspectTrailer">
+                    <iframe class="youtubeTrailer" src="" frameborder="0" allow="accelerometer; autoplay; modestbranding; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div id="inspectBody">
+                    <h1 class="title"></h1>
+                    <p class="genre"></p>
+                    <p class="runtime"></p>
+                    <p class="runDate"></p>
+                    <div class="poster">
+                        <img src="">
+                    </div>
+                    <p class="description"></p>
+                </div>
+                <div id="inspectFooter">
+                    <a class="ticket button" target="_blank" rel="noopener" href="">
+                        <span class="material-symbols-outlined ticketIcon">
+                            local_activity
+                        </span>
+                        <p>Boka Biljetter</p>
+                    </a>
+                </div>
+            </div>
+                
+            
+
         </main>
         <%- include('./partials/footer.ejs') %>
     </div>
-
-    <script>
-
-        document.querySelector('#moviesContainer').style.paddingBottom = (document.querySelector('footer').offsetHeight - 1) + "px";
-        document.querySelector('#moviesContainer').style.top = (document.querySelector('#information').offsetHeight) + "px";
-
-        // console.log(document.querySelector('#filmElement1 .poster').src)
-
-    </script>
 
 </body>
 

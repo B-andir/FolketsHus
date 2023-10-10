@@ -122,7 +122,6 @@ function handleTouchMove(evt) {
             }
         }                       
     } else {
-        var nav = $('#nav');
         if ( yDiff > 0 ) {
             /* down swipe */ 
             

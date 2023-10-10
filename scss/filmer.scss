@@ -1,4 +1,5 @@
 @import 'partials/colors';
+@import url("https://use.typekit.net/psc7wkd.css");
 
 main {
 
@@ -225,6 +226,156 @@ main {
             }
         }
     }
+
+    #inspectMovieBackground {
+        z-index: 19;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+
+        background-color: rgba($black, 0.2);
+        backdrop-filter: blur(2px);
+    }
+
+    #inspectMovie {
+        z-index: 20;
+        position: fixed;
+        // aspect-ratio: 4 / 5;
+        justify-content: center;
+        top: 8%;
+        width: 40rem;
+        max-width: 60%;
+        min-width: 30rem;
+        height: auto;
+
+        background-color: $main;
+
+        border-radius: 16px;
+        
+        display: flex;
+        flex-direction: column;
+
+        #inspectTrailer {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            iframe {
+                width: 100%;
+                height: 100%;
+                overflow-y: auto; 
+                overflow-x: hidden;
+                border-bottom: 4px solid $red-dark;
+
+                border-top-left-radius: 16px;
+                border-top-right-radius: 16px;
+
+                .ytp-title {
+                    display: none !important;
+                }
+            }
+        }
+
+        #inspectBody {
+            font-size: 1rem;
+            font-family: sans-serif;
+
+            display: flex;
+            flex-direction: column;
+
+            .title {
+                margin: 1.6rem 0 0 0;
+                font-size: 1.9em;
+                font-family: 'roboto', sans-serif;
+                font-weight: 700;
+                font-style: normal;
+                height: max-content;
+                
+                padding-left: 32%;
+                padding-right: 2rem;
+                color: $black;
+            }
+
+            .genre {
+                font-size: 0.97em;
+                padding-left: 32%;
+                margin: 0.4em 0 0 0;
+                font-weight: 300;
+            }
+
+            .runtime {
+                padding-left: 32%;
+                font-size: 0.9em;
+                margin: 0.3em 0 0 0;
+            }
+
+            .runDate {
+                position: absolute;
+                margin: 0.6em 0.4em 0 0;
+                right: 0;
+                font-size: 1em;
+                width: max-content
+            }
+
+            .poster {
+                aspect-ratio: 2 / 3;
+                position: absolute;
+                width: 25%;
+                left: 2%;
+                top: 30%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    box-shadow: 0 0 15px 1px #000000;
+                }
+            }
+
+            .description {
+                font-family: 'brother-1816';
+                font-weight: 400;
+                font-style: normal;
+                margin-top: 2.5rem;
+                padding: 0 5em 0 3em;
+            }
+        }
+
+        #inspectFooter {
+            padding: 1rem 1rem;
+            height: 3rem;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            display: flex;
+            flex-direction: column;
+            justify-self: center;
+
+            .button {
+                width: 45%;
+                height: 100%;
+                border-radius: 6px;
+
+                align-self: flex-end;
+
+                background-color: #54B9CB;
+                color: white;
+                font-family: 'roboto', sans-serif;
+
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 1em;
+
+                text-decoration: none;
+
+                p {
+                    font-size: 1.1em;
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 1500px) {
@@ -386,6 +537,7 @@ html:not([data-is-mobile = "false"]) {
         flex-direction: column !important;
 
         width: 100% !important;
+        height: fit-content;
 
         #information {
             position: relative !important;
@@ -411,10 +563,9 @@ html:not([data-is-mobile = "false"]) {
 
         #moviesContainer {
             position: relative !important;
-            // top: 12vh;
+            margin-top: calc(8vh + 3rem) !important;
             flex-direction: column !important;
             align-self: center !important;
-            position: relative !important;
             padding-top: 0vh !important;
             width: 95% !important;
 
@@ -452,6 +603,56 @@ html:not([data-is-mobile = "false"]) {
                     }
                 }
             }
+        }
+
+        #inspectMovie {
+            top: 0;
+            left: 0;
+
+            max-height: 90vh;
+            padding-bottom: 20vh;
+            width: 100vw;
+            min-width: 100vw;
+
+            border-radius: 0px;
+
+            overflow-y: scroll;
+
+            display: block;
+
+            #inspectTrailer {
+                position: relative;
+                top: 0;
+
+                iframe {
+                    border-radius: 0;
+                }
+            }
+
+            #inspectBody {
+                .description {
+                    margin-top: 10vh;
+                    max-height: 20vh;
+                    overflow-y: scroll;
+                    width: 80%;
+                    padding: 0.5em 1em 0.5em 0;
+                    margin-left: 3em;
+                    border-top: 1px solid $main-dark;
+                    border-bottom: 1px solid $main-dark;
+                }
+            }
+
+            #inspectFooter {
+                position: static;
+                height: 4rem;
+                bottom: 0;
+
+                .ticket {
+                    min-width: 15em;
+                    align-self: center;
+                }
+            }
+            
         }
     }
 

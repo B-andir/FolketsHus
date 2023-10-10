@@ -32,7 +32,7 @@
     }
 %>
 
-<div class="filmElement" id="filmElement<%- id %>">
+<div class="filmElement" id="filmElement<%- id %>" onclick="movieElementClicked('filmElement<%- id %>')">
     <%# console.log(element.name) %>
     <img class="poster" src="<%= film.posterURL %>">
     <div class="mainBody">
@@ -48,4 +48,7 @@
             <% } %>
         </p>
     </div>
+    <div class="hidden youtubeTrailer" src="<%= film.trailerURL.replace("watch?v=", "embed/") + "?rel=0" %>"></div>
+    <div class="hidden description"><%- film.description.length > 0 ? film.description : 'Beskrivning saknas.' %></div>
+    <div class="hidden ticketURL" href="<%- film.ticketURL %>"></div>
 </div>

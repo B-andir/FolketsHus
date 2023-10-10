@@ -32,3 +32,105 @@ function informationClicked() {
         
     } 
 }
+
+
+var inspectOpen = false;
+var scrollStart = window.scrollY;
+
+function inspectBackgroundClicked() {
+    document.getElementById('inspectMovieBackground').classList.add('hidden');
+    document.getElementById('inspectMovie').classList.add('hidden');
+    
+    document.removeEventListener('scroll', scrollClose);
+
+    inspectOpen = false;
+}
+
+function scrollClose() {
+    if (Math.abs(window.scrollY - scrollStart) > 20) {
+        inspectBackgroundClicked();
+    }
+}
+
+function movieElementClicked(targetID) {
+
+    targetID = '#' + targetID;
+
+    document.querySelector('#inspectTrailer .youtubeTrailer').setAttribute('src', document.querySelector(targetID + ' .youtubeTrailer').getAttribute('src'));
+    document.querySelector('#inspectBody .poster img').setAttribute('src', document.querySelector(targetID + ' .poster').getAttribute('src'));
+    document.querySelector('#inspectFooter .ticket').setAttribute('href', document.querySelector(targetID + ' .ticketURL').getAttribute('href'));
+
+    document.querySelector('#inspectBody .title').innerHTML = document.querySelector(targetID + ' .title').innerHTML;
+    document.querySelector('#inspectBody .genre').innerHTML = document.querySelector(targetID + ' .genre').innerHTML;
+    document.querySelector('#inspectBody .runtime').innerHTML = document.querySelector(targetID + ' .runtime').innerHTML;
+    document.querySelector('#inspectBody .runDate').innerHTML = document.querySelector(targetID + ' .runDate').innerHTML;
+    document.querySelector('#inspectBody .description').innerHTML = document.querySelector(targetID + ' .description').innerHTML;
+
+
+    document.getElementById('inspectMovieBackground').classList.remove('hidden');
+    document.getElementById('inspectMovie').classList.remove('hidden');
+
+    inspectOpen = true;
+
+    if (document.querySelector('nav').dataset.isMobile) {
+        scrollStart = window.scrollY;
+        document.addEventListener('scroll', scrollClose);
+    }
+}
+
+
+// Close Nav on Swipe Right
+document.addEventListener('touchstart', handleTouchStartFilmer, false);        
+document.addEventListener('touchmove', handleTouchMoveFilmer, false);
+
+var marginFilmer = 0;
+
+var xDownFilmer = null;                                                        
+var yDownFilmer = null;
+
+function getTouchesFilmer(evt) {
+  return evt.touches ||             // browser API
+         evt.originalEvent.touches; // jQuery
+}                                                     
+                                                                         
+function handleTouchStartFilmer(evt) {
+    const firstTouch = getTouchesFilmer(evt)[0];                                      
+    xDownFilmer = firstTouch.clientX;                                      
+    yDownFilmer = firstTouch.clientY;                                      
+};                                                
+                                                                         
+function handleTouchMoveFilmer(evt) {
+    if ( ! xDownFilmer || ! yDownFilmer ) {
+        return;
+    }
+
+    var xUpFilmer = evt.touches[0].clientX;                                    
+    var yUpFilmer = evt.touches[0].clientY;
+
+    var xDiffFilmer = xDownFilmer - xUpFilmer;
+    var yDiffFilmer = yDownFilmer - yUpFilmer;
+                                                                         
+    if ( Math.abs( xDiffFilmer ) > Math.abs( yDiffFilmer ) ) {/*most significant*/
+        if ( xDiffFilmer > 0 ) {
+            /* right swipe */
+        } else {
+            /* left swipe */
+            
+        }                       
+
+        if (inspectOpen && Math.abs(xDiffFilmer) > 15) {
+            inspectBackgroundClicked();
+        }
+    } else {
+        if ( yDiffFilmer > 0 ) {
+            /* down swipe */ 
+            
+        } else { 
+            /* up swipe */
+
+        }                                  
+    }
+    /* reset values */
+    xDownFilmer = null;
+    yDownFilmer = null;                                             
+};

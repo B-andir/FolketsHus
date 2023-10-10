@@ -26,3 +26,5 @@ Landing Page
 
 Detect what nav element user is currently on, and change its color, as well as dropdown "parent" state to open
 
+bio-rosen/filmer:
+	inspectMovie element, use the iframe API to set fullscreen on play event.
