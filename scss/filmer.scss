@@ -348,10 +348,11 @@ main {
             bottom: 0;
 
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-self: center;
+            align-items: center;
 
-            .button {
+            .ticket {
                 width: 45%;
                 height: 100%;
                 border-radius: 6px;
@@ -649,7 +650,11 @@ html:not([data-is-mobile = "false"]) {
 
                 .ticket {
                     min-width: 15em;
-                    align-self: center;
+                }
+
+                #inspectCloseButton {
+                    height: 4rem;
+                    aspect-ratio: 1 / 1;
                 }
             }
             

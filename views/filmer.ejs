@@ -88,6 +88,13 @@
                     <p class="description"></p>
                 </div>
                 <div id="inspectFooter">
+                    <% if (is_mobile) { %>
+                    <div id="inspectCloseButton">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </div>
+                    <% } %>
                     <a class="ticket button" target="_blank" rel="noopener" href="">
                         <span class="material-symbols-outlined ticketIcon">
                             local_activity
@@ -96,12 +103,14 @@
                     </a>
                 </div>
             </div>
-                
-            
-
         </main>
+
         <%- include('./partials/footer.ejs') %>
     </div>
+
+    <script>
+        movieElementClicked('filmElement2')
+    </script>
 
 </body>
 
