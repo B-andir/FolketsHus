@@ -37,7 +37,7 @@ function informationClicked() {
 var inspectOpen = false;
 var scrollStart = window.scrollY;
 
-function inspectBackgroundClicked() {
+function closeInspect() {
     document.getElementById('inspectMovieBackground').classList.add('hidden');
     document.getElementById('inspectMovie').classList.add('hidden');
     
@@ -48,7 +48,7 @@ function inspectBackgroundClicked() {
 
 function scrollClose() {
     if (Math.abs(window.scrollY - scrollStart) > 20) {
-        inspectBackgroundClicked();
+        closeInspect();
     }
 }
 
@@ -119,7 +119,7 @@ function handleTouchMoveFilmer(evt) {
         }                       
 
         if (inspectOpen && Math.abs(xDiffFilmer) > 15) {
-            inspectBackgroundClicked();
+            closeInspect();
         }
     } else {
         if ( yDiffFilmer > 0 ) {

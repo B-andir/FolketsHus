@@ -646,7 +646,9 @@ html:not([data-is-mobile = "false"]) {
             #inspectFooter {
                 position: static;
                 height: 4rem;
+                padding: 1rem 2rem;
                 bottom: 0;
+                justify-content: space-between;
 
                 .ticket {
                     min-width: 15em;
@@ -655,6 +657,15 @@ html:not([data-is-mobile = "false"]) {
                 #inspectCloseButton {
                     height: 4rem;
                     aspect-ratio: 1 / 1;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;                    
+                    
+                    .crossIcon {
+                        font-size: 3em;
+                        color: rgba($black, 0.8)
+                    }
                 }
             }
             

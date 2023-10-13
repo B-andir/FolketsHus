@@ -72,7 +72,7 @@
                 </div>
             </div>
 
-            <div class="hidden" id="inspectMovieBackground" onclick="inspectBackgroundClicked()"></div>
+            <div class="hidden" id="inspectMovieBackground" onclick="closeInspect()"></div>
             <div class="hidden" id="inspectMovie">
                 <div id="inspectTrailer">
                     <iframe class="youtubeTrailer" src="" frameborder="0" allow="accelerometer; autoplay; modestbranding; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -89,8 +89,8 @@
                 </div>
                 <div id="inspectFooter">
                     <% if (is_mobile) { %>
-                    <div id="inspectCloseButton">
-                        <span class="material-symbols-outlined">
+                    <div id="inspectCloseButton" onclick="closeInspect()">
+                        <span class="material-symbols-outlined crossIcon">
                             close
                         </span>
                     </div>
@@ -107,10 +107,6 @@
 
         <%- include('./partials/footer.ejs') %>
     </div>
-
-    <script>
-        movieElementClicked('filmElement2')
-    </script>
 
 </body>
 
