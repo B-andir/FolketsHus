@@ -66,7 +66,7 @@
             <div id="moviesContainer">
                 <h1>Uppkomande Filmer</h1>
                 <div id="moviesList" data-list-type="normal">
-                    <% for (let index = 1; index < Object.keys(films).length + 1; index++) { const element = films[index]; %>
+                    <% for (let index = 0; index < Object.keys(films).length; index++) { const element = films[index]; %>
                         <%- include('./partials/filmElement.ejs', { film: element, id: index }) %>
                     <% } %>
                 </div>
