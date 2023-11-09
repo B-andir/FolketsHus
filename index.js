@@ -4,6 +4,7 @@ const device = require('express-device');
 const morgan = require('morgan');
 const database = require("./database.js");
 const routing = require('./service/routing.js');
+const schedule = require('node-schedule');
 require('dotenv').config();
 
 // ------ INIT ------
@@ -32,6 +33,10 @@ device.enableDeviceHelpers(app);
 
 app.set('view engine', 'ejs');
 app.use(morgan( process.env.NODE_ENVIRONMENT == 'development' ? 'dev' : 'short'));
+
+// let funcCall = require('./service/remove-outdated-movies.js');
+// funcCall();
+const dbClearOld = schedule.scheduleJob('* 0,24 * * *', require('./service/remove-outdated-movies.js'))
 
 // ------ Routing ------
 

@@ -22,20 +22,17 @@
         let spanTime = "<span class='time'>";
         let spanEnd = "</span>";
         
-        string += weekdays[date.getDay()] + " ";
+        string += weekdays[date.getUTCDay()] + " ";
 
-        string += spanDate + date.getDate() + "/" + (date.getMonth() + 1) + spanEnd + " ";
+        string += spanDate + date.getUTCDate() + "/" + (date.getUTCMonth() + 1) + spanEnd + " ";
 
-        string += spanTime + date.getHours() + ":" + (date.getMinutes() == 0 ? '00' : date.getMinutes()) + spanEnd;
+        string += spanTime + date.getUTCHours() + ":" + (date.getUTCMinutes() == 0 ? '00' : date.getUTCMinutes()) + spanEnd;
         
         return string;
     }
 %>
 
-<% console.log(film) %>
-
 <div class="filmElement" id="filmElement<%- id %>" onclick="movieElementClicked('filmElement<%- id %>')">
-    <%# console.log(element.name) %>
     <img class="poster" src="<%= film.posterURL %>">
     <div class="mainBody">
         <h2 class="title"><%= film.name %></h2>

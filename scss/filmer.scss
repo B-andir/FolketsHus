@@ -242,13 +242,13 @@ main {
     #inspectMovie {
         z-index: 20;
         position: fixed;
-        // aspect-ratio: 4 / 5;
         justify-content: center;
-        top: 8%;
+        top: 4%;
         width: 40rem;
         max-width: 60%;
         min-width: 30rem;
         height: auto;
+        max-height: 90vh;
 
         background-color: $main;
 
@@ -348,7 +348,7 @@ main {
             bottom: 0;
 
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-self: center;
             align-items: center;
 
@@ -357,7 +357,7 @@ main {
                 height: 100%;
                 border-radius: 6px;
 
-                align-self: flex-end;
+                align-self: center;
 
                 background-color: #54B9CB;
                 color: white;
@@ -610,14 +610,14 @@ html:not([data-is-mobile = "false"]) {
             top: 0;
             left: 0;
 
-            max-height: 90vh;
-            padding-bottom: 20vh;
+            height: 90vh;
+            padding-bottom: 10vh;
             width: 100vw;
             min-width: 100vw;
 
             border-radius: 0px;
 
-            overflow-y: scroll;
+            overflow-y: hidden;
 
             display: block;
 
@@ -648,7 +648,8 @@ html:not([data-is-mobile = "false"]) {
                 height: 4rem;
                 padding: 1rem 2rem;
                 bottom: 0;
-                justify-content: space-between;
+                flex-direction: row;
+                justify-content: space-around;
 
                 .ticket {
                     min-width: 15em;

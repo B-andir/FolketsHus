@@ -4,7 +4,52 @@ footer {
     left: 0;
     bottom: 0;
     width: 100vw;
-    height: 10vh;
+    height: 60vh;
 
     background-color: $grey-dark;
+    color: $main;
+    font-family: 'Roboto', sans-serif;
+
+    h2 {
+        margin-left: 2.5vw;
+    }
+
+    #footerContainer {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        .footerElement {
+            width: 25%;
+            color: $main;
+            font-family: 'Roboto', sans-serif;
+        }
+    
+        #footerSection1 {
+            h2 {
+                padding-bottom: 1em;
+            }
+        }
+    
+    
+        p {
+            line-height: 1.2;
+        }
+
+        a {
+            font-style: normal;
+            text-decoration: none;
+            color: $red;
+        }
+    
+        #footerSection2 {
+            align-self: center;
+            width: 40vw;
+            iframe {
+                width: 95%;
+            }
+        }
+    }
+
 }
