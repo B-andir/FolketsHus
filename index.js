@@ -34,9 +34,9 @@ device.enableDeviceHelpers(app);
 app.set('view engine', 'ejs');
 app.use(morgan( process.env.NODE_ENVIRONMENT == 'development' ? 'dev' : 'short'));
 
-// let funcCall = require('./service/remove-outdated-movies.js');
-// funcCall();
-const dbClearOld = schedule.scheduleJob('* 0,24 * * *', require('./service/remove-outdated-movies.js'))
+let funcCall = require('./service/remove-outdated-movies.js');
+funcCall();
+const dbClearOld = schedule.scheduleJob('* 0,24 * * *', funcCall)
 
 // ------ Routing ------
 
