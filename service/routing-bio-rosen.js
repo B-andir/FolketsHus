@@ -104,6 +104,10 @@ router.get('/filmer', async (req, res) => {
         title: 'Filmer', 
         uniqueTitle: 'Bio Rosen',
         films: getFilmCache(),
+        more: {
+            live: getLiveCache()[0],
+            kontrast: getKontrastCache()[0],
+        },
     });
 });
 
@@ -112,6 +116,10 @@ router.get('/live-pa-bio', (req, res) => {
         title: 'Live På Bio', 
         uniqueTitle: 'Bio Rosen',
         films: getLiveCache(),
+        more: {
+            film: getFilmCache()[0],
+            kontrast: getKontrastCache()[0],
+        },
     });
 });
 
@@ -120,6 +128,10 @@ router.get('/bio-kontrast', (req, res) => {
         title: 'Bio Kontrast', 
         uniqueTitle: 'Bio Rosen',
         films: getKontrastCache(),
+        more: {
+            film: getFilmCache()[0],
+            live: getLiveCache()[0],
+        },
     });
 });
 

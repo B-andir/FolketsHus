@@ -1,9 +1,5 @@
 var showElements = new Map();
 
-function redirectToUrl(url) {
-    window.location.href = "/" + url;
-}
-
 function triggerToggleDropdownElement(elementID, parent) {
     return new Promise((resolve) => {
         let timeout = 1000;  // 1.0 seconds

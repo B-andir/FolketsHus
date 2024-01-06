@@ -8,12 +8,16 @@
         </div>
         <div class="footerElement" id="footerSection2">
             <iframe 
-                width="450" 
-                height="450" 
+                width="450px" 
+                height="450px" 
                 style="border:0" 
                 loading="lazy" 
                 allowfullscreen 
-                src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJY_rKU0MIYEYRW8KwJudqHSU&key=AIzaSyCzYW52vk1hm_VkCc6BeXoat-eBF26AnFo&maptype=satellite&zoom=14">
+                <% if (!is_mobile) { %>
+                    src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJY_rKU0MIYEYRW8KwJudqHSU&key=AIzaSyCzYW52vk1hm_VkCc6BeXoat-eBF26AnFo&zoom=16">
+                <% } else { %>
+                    src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJY_rKU0MIYEYRW8KwJudqHSU&key=AIzaSyCzYW52vk1hm_VkCc6BeXoat-eBF26AnFo&zoom=15">
+                <% } %>
             </iframe>
         </div>
         <div class="footerElement" id="footerSection3">

@@ -13,6 +13,13 @@ body {
     overflow-x: hidden;
 
     -webkit-tap-highlight-color: transparent;
+    
+    transition: filter 0.2s ease; /* Transition for smooth effect */
+
+    &.blur {
+      filter: blur(2px); /* Adjust the blur intensity as needed */
+      pointer-events: none; /* Prevent interaction with the blurred content */
+    }
 }
 
 h1 {
@@ -40,4 +47,8 @@ h1 {
 #contentWrap {
     // padding-top: 6vh;
     width: 100vw;
+}
+
+.redirect {
+    cursor: pointer;
 }

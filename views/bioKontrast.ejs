@@ -1,8 +1,9 @@
-<html>
+<html data-is-mobile=<%- is_mobile %>>
 
 <head>
     <%- include('./partials/head.ejs') %>
-    <!-- <link rel='stylesheet' href='/style/[file].css'> -->
+    <link rel='stylesheet' href='/style/filmer.css'>
+    <script src="/scripts/filmer.js"></script>
 </head>
 
 <body>
@@ -15,11 +16,70 @@
     <div id="pageContainer">
         <main id="contentWrap">
 
-            <!-- [content] -->
+            <!-- Information -->
+            <div id="information">
+                <div class="informationElement">
+                    <div class="header" onclick="informationClicked()">
+                        <h2>Bli medlem</h2>
+                        <span class="material-symbols-outlined expandArrow rightElement">expand_less</span>
+                        <span class="material-symbols-outlined info rightElement">info</span>
+                    </div>
+                    <div class="content">
+                        <p>
+                            Som medlem får du rabatterat pris på alla Bio Kontrast filmer.
+                        </p>
+                        <p>
+                            Biljettpris för medlemmar: <span class="bold underline">60kr</span>
+                            <br>
+                            Biljettpris för övriga: <span class="bold underline">100kr</span>
+                        </p>
+                        <p>
+                            Medlemsavgift: <span class="bold underline">100kr/kalenderår</span>
+                        </p>
+                        <p>
+                            Betala medlemsavgift i samband med filmbiljetten, eller gå in på biblioteket i Hallstavik och prata med Annalena.
+                        </p>
+                    </div>
+                </div>
+                <div class="informationElement">
+                    <div class="header" onclick="informationClicked()">
+                        <h2>Om Bio Kontrast</h2>
+                        <span class="material-symbols-outlined expandArrow rightElement">expand_less</span>
+                        <span class="material-symbols-outlined info rightElement">info</span>
+                    </div>
+                    <div class="content">
+                            <p>
+                                Bio Kontrast är icke-kommersiella biografvisningar för allmänheten och drivs av filmföreningar/programråd som visar kvalitetsfilm för alla. Ofta drivs en kommersiell biografverksamhet parallellt med Bio Kontrast.
+                            </p>
+                            <p>
+                                Det finns tre saker som kännetecknar Bio Kontrast:
+                            </p>
+                            <ul>
+                                <li>Kvalitetsfilm</li>
+                                <li>Filmval i ett lokalt programråd</li>
+                                <li>Ett aktivt filmseende</li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Uppkommande Filmer -->
+            <div id="moviesContainer">
+                <h1>Uppkommande Kontrastfilmer</h1>
+                <p id="kontrastNotice"><span class="bold">OBS!</span> Biljettförsäljning sker endast på plats i Kassan vid föreställningen!</p>
+                <div id="moviesList" data-list-type="normal">
+                    <% for (let index = 0; index < Object.keys(films).length; index++) { const element = films[index]; %>
+                        <%- include('./partials/filmElement.ejs', { film: element, id: index, type: 'kontrast' }) %>
+                    <% } %>
+                </div>
+            </div>
+
+            <%- include('./partials/filmInspect.ejs') %>
         </main>
+
         <%- include('./partials/footer.ejs') %>
     </div>
+
 </body>
 
 </html>

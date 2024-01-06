@@ -1,8 +1,9 @@
-<html>
+<html data-is-mobile=<%- is_mobile %>>
 
 <head>
     <%- include('./partials/head.ejs') %>
-    <!-- <link rel='stylesheet' href='/style/[file].css'> -->
+    <link rel='stylesheet' href='/style/filmer.css'>
+    <script src="/scripts/filmer.js"></script>
 </head>
 
 <body>
@@ -15,11 +16,48 @@
     <div id="pageContainer">
         <main id="contentWrap">
 
-            <!-- [content] -->
+            <!-- Information -->
+            <div id="information">
+                <div class="informationElement">
+                    <div class="header" onclick="informationClicked()">
+                        <h2>Live på bio: Ta del av kultur i världsklass!</h2>
+                        <span class="material-symbols-outlined expandArrow rightElement">expand_less</span>
+                        <span class="material-symbols-outlined info rightElement">info</span>
+                    </div>
+                    <div class="content">
+                            <p>
+                                Våra operaföreställningar direktsänds från <a href="https://www.metopera.org/" target="_blank">Metropolitan i New York.</a> Här får du även se det som pågår bakom scenen inför en föreställning och i pauserna, lyssna till intervjuer med skådespelarna och uppleva opera när den är som bäst. Dessa direktsändningar når ut till 2 200 biografer i 70 länder på sex kontinenter.
+                            </p>
+                            <p>
+                                På grund av Rysslands invasion av Ukraina kommer vi ej att visa balettföreställningar från <a href="https://www.bolshoi.ru/en/" target="_blank">Bolsjoj</a>.
+                            </p>
+                            <p>
+                                Utöver opera och balett visar vi även konserter och teaterföreställningar.
+                            </p>
+                            <p class="bold">
+                                Live på bio är ett samarbete med
+                            </p>
+                            <img src="/images/Logo/fhp.png" id="fhpLogo">
+                    </div>
+                </div>
+            </div>
 
+            <!-- Uppkommande Filmer -->
+            <div id="moviesContainer">
+                <h1>Uppkommande Livesändningar</h1>
+                <div id="moviesList" data-list-type="normal">
+                    <% for (let index = 0; index < Object.keys(films).length; index++) { const element = films[index]; %>
+                        <%- include('./partials/filmElement.ejs', { film: element, id: index, type: 'live' }) %>
+                    <% } %>
+                </div>
+            </div>
+
+            <%- include('./partials/filmInspect.ejs') %>
         </main>
+
         <%- include('./partials/footer.ejs') %>
     </div>
+
 </body>
 
 </html>

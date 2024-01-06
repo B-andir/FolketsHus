@@ -4,10 +4,6 @@ var scrollBefore = 0;
 
 var screenHeight = screen.height;
 
-function redirectToUrl(url) {
-    window.location.href = "/" + url;
-}
-
 function burgerClicked() {
     if (!burgerOpen) {  // If closed and should open
         

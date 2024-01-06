@@ -5,6 +5,7 @@ main {
 
     padding: 0 0 5vh 0;
     width: 80vw;
+    min-height: 101vh;
     
     display: flex;
     justify-content: center;
@@ -25,7 +26,7 @@ main {
 
         box-shadow: 0 0 4px $soft-dark;
 
-        transition: top 0.2s ease;
+        transition: top 0.2s ease, padding 0.2s ease;
 
         &::-webkit-scrollbar {
             display: none;
@@ -64,7 +65,7 @@ main {
                     font-weight: 600;
                     font-style: normal;
                     font-size: 1.2em;
-                    width: max-content;
+                    width: 80%;
                     // height: 0.8em;
                 }
 
@@ -106,8 +107,22 @@ main {
                     transition: opacity 0.1s ease;
                 }
 
+                a {
+                    color: $red;
+                    text-decoration: none;
+                }
+
                 .bold {
                     font-weight: 600;
+                }
+
+                img {
+                    height: 0px;
+                }
+
+                #fhpLogo {
+                    width: 70%;
+                    max-width: 13em;
                 }
             }
 
@@ -132,6 +147,15 @@ main {
                 .content {
                     font-size: 1em;
                     padding: 0.5vh 2vw;
+
+                    img {
+                        height: auto;
+                    }
+
+                    #fhpLogo {
+                        margin-top: -10px;
+                        margin-bottom: 10px;
+                    }
                 }
                 
             }
@@ -143,6 +167,7 @@ main {
         // background-color: aquamarine;
         width: 80%;
         padding-top: 15vh;
+        padding-bottom: 5vh;
 
         // border-left: 1px solid $main-dark;
         // border-right: 1px solid $main-dark;
@@ -157,7 +182,18 @@ main {
             border-bottom: 1px solid $main-dark;
         }
 
-        #moviesList {
+        #kontrastNotice {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 1.2em;
+            padding-left: 2vw;
+
+            .bold {
+                font-weight: 600;
+            }
+        }
+
+        .moviesList {
             width: 100%;
             display: flex;
             flex-direction: row;
@@ -219,11 +255,42 @@ main {
 
                         &.ageRating {
                             justify-self: flex-end;
-                            font-size: 0.9rem;
+                            font-size: 0.9em;
                         }
                     }
                 }
             }
+
+            &#moreList {
+                font-size: 0.8rem;
+                justify-content: space-around;
+                width: 100%;
+
+                .moreItem {
+                    display: flex;
+                    flex-direction: column;
+
+                    height: 25em;
+                    width: 40%;
+
+                    .moreOverhead {
+                        margin: 0;
+                        margin-left: 2vw;
+                        font-size: 1.6em;
+                        width: max-content;
+                        font-family: "Roboto",sans-serif;
+                    }
+
+                    .filmElement {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        #moreTitle {
+            margin-top: Min(8vh, 60px);
+            font-size: 2.0em;
         }
     }
 
@@ -260,12 +327,12 @@ main {
         #inspectTrailer {
             aspect-ratio: 16 / 9;
             width: 100%;
+            border-bottom: 4px solid $red-dark;
             iframe {
                 width: 100%;
                 height: 100%;
                 overflow-y: auto; 
                 overflow-x: hidden;
-                border-bottom: 4px solid $red-dark;
 
                 border-top-left-radius: 16px;
                 border-top-right-radius: 16px;
@@ -313,7 +380,7 @@ main {
                 position: absolute;
                 margin: 0.6em 0.4em 0 0;
                 right: 0;
-                font-size: 1em;
+                font-size: 1.1em;
                 width: max-content
             }
 
@@ -371,13 +438,41 @@ main {
 
                 text-decoration: none;
 
+                &.grey {
+                    background-color: $grey;
+                }
+
                 p {
                     font-size: 1.1em;
                 }
+
             }
         }
     }
+
 }
+
+.popup {
+    z-index: 30;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-content {
+    z-index: 30;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer; /* Change cursor to pointer */
+  }
 
 @media only screen and (max-width: 1500px) {
     html:has([data-is-mobile = 'false']) {
@@ -542,7 +637,9 @@ html:not([data-is-mobile = "false"]) {
 
         #information {
             position: relative !important;
-            top: 13.5vh !important;
+            top: 0;
+            padding-top: 13.1vh !important;
+            background-color: $main-dark;
             width: 100% !important;
             max-width: 100vw !important;
             max-height: 100% !important;
@@ -564,7 +661,7 @@ html:not([data-is-mobile = "false"]) {
 
         #moviesContainer {
             position: relative !important;
-            margin-top: calc(8vh + 3rem) !important;
+            margin-top: 3rem !important;
             flex-direction: column !important;
             align-self: center !important;
             padding-top: 0vh !important;
@@ -572,7 +669,7 @@ html:not([data-is-mobile = "false"]) {
 
             transition: top 0.4s ease !important;
 
-            #moviesList {
+            .moviesList {
 
                 .filmElement {
                     width: 90% !important;
@@ -610,30 +707,40 @@ html:not([data-is-mobile = "false"]) {
             top: 0;
             left: 0;
 
-            height: 90vh;
-            padding-bottom: 10vh;
+            min-height: 100vh;
+            max-height: 100vh;
             width: 100vw;
             min-width: 100vw;
 
             border-radius: 0px;
 
-            overflow-y: hidden;
+            overflow-y: scroll;
 
             display: block;
 
             #inspectTrailer {
+                aspect-ratio: auto;
                 position: relative;
                 top: 0;
 
+                height: 40vh;
+                display: flex;
+                justify-content: center;
+                background: radial-gradient(circle, rgba(38,62,99,1) 0%, rgba(0,0,0,1) 62%);
+
                 iframe {
                     border-radius: 0;
+
+                    aspect-ratio: 16/9;
+                    height: 100%;
+                    width: auto;
                 }
             }
 
             #inspectBody {
                 .description {
                     margin-top: 10vh;
-                    max-height: 20vh;
+                    max-height: 100px;
                     overflow-y: scroll;
                     width: 80%;
                     padding: 0.5em 1em 0.5em 0;
@@ -641,13 +748,21 @@ html:not([data-is-mobile = "false"]) {
                     border-top: 1px solid $main-dark;
                     border-bottom: 1px solid $main-dark;
                 }
+
+                .poster {
+                    max-width: 172px;
+                }
+
+                .runDate {
+                    margin-right: 2vw;
+                }
             }
 
             #inspectFooter {
-                position: static;
+                position: absolute;
                 height: 4rem;
                 padding: 1rem 2rem;
-                bottom: 0;
+                bottom: 5px;
                 flex-direction: row;
                 justify-content: space-around;
 
@@ -677,7 +792,7 @@ html:not([data-is-mobile = "false"]) {
         main {
     
             #information {
-                top: 11vh !important;
+                padding-top: 11vh !important;
             }
         }
     }

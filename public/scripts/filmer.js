@@ -56,9 +56,29 @@ function movieElementClicked(targetID) {
 
     targetID = '#' + targetID;
 
-    document.querySelector('#inspectTrailer .youtubeTrailer').setAttribute('src', document.querySelector(targetID + ' .youtubeTrailer').getAttribute('src'));
+    let trailerURL = document.querySelector(targetID + ' .youtubeTrailer').getAttribute('src');
+    console.log(trailerURL)
+
+
+
+    if (trailerURL.length > 6) {
+        document.querySelector('#inspectTrailer .youtubeTrailer').setAttribute('src', trailerURL);
+    } else {
+        document.querySelector('#inspectTrailer .youtubeTrailer').setAttribute('src', '');
+    }
+
     document.querySelector('#inspectBody .poster img').setAttribute('src', document.querySelector(targetID + ' .poster').getAttribute('src'));
-    document.querySelector('#inspectFooter .ticket').setAttribute('href', document.querySelector(targetID + ' .ticketURL').getAttribute('href'));
+
+    console.log(document.querySelector(targetID + ' .type').innerHTML);
+
+    const ticketButton = document.querySelector('#inspectFooter .ticket');
+    if (document.querySelector(targetID + ' .type').innerHTML != 'kontrast') {
+        ticketButton.setAttribute('href', document.querySelector(targetID + ' .ticketURL').getAttribute('href'));
+        ticketButton.classList.remove('grey')
+    } else {
+        ticketButton.removeAttribute('href')
+        ticketButton.classList.add('grey')
+    }
 
     document.querySelector('#inspectBody .title').innerHTML = document.querySelector(targetID + ' .title').innerHTML;
     document.querySelector('#inspectBody .genre').innerHTML = document.querySelector(targetID + ' .genre').innerHTML;

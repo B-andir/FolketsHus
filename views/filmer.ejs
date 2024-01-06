@@ -65,44 +65,26 @@
             <!-- Uppkommande Filmer -->
             <div id="moviesContainer">
                 <h1>Uppkomande Filmer</h1>
-                <div id="moviesList" data-list-type="normal">
+                <div class="moviesList" id="moviesList" data-list-type="normal">
                     <% for (let index = 0; index < Object.keys(films).length; index++) { const element = films[index]; %>
-                        <%- include('./partials/filmElement.ejs', { film: element, id: index }) %>
+                        <%- include('./partials/filmElement.ejs', { film: element, id: index, type: 'film' }) %>
                     <% } %>
+                </div>
+                
+                <h1 id="moreTitle">Mer på Bio Rosen</h1>
+                <div class="moviesList" id="moreList">
+                    <div class="moreItem">
+                        <h2 class="redirect moreOverhead" onclick="redirectToUrl('bio-rosen/live-pa-bio')">Live På Bio</h2>
+                        <%- include('./partials/filmElement.ejs', { film: more.live, id: 2001, type: 'live' }) %>
+                    </div>
+                    <div class="moreItem">
+                        <h2 class="redirect moreOverhead" onclick="redirectToUrl('bio-rosen/bio-kontrast')">Bio Kontrast</h2>
+                        <%- include('./partials/filmElement.ejs', { film: more.kontrast, id: 2002, type: 'kontrast' }) %>
+                    </div>
                 </div>
             </div>
 
-            <div class="hidden" id="inspectMovieBackground" onclick="closeInspect()"></div>
-            <div class="hidden" id="inspectMovie">
-                <div id="inspectTrailer">
-                    <iframe class="youtubeTrailer" src="" frameborder="0" allow="accelerometer; autoplay; modestbranding; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div id="inspectBody">
-                    <h1 class="title"></h1>
-                    <p class="genre"></p>
-                    <p class="runtime"></p>
-                    <p class="runDate"></p>
-                    <div class="poster">
-                        <img src="">
-                    </div>
-                    <p class="description"></p>
-                </div>
-                <div id="inspectFooter">
-                    <% if (is_mobile) { %>
-                    <div id="inspectCloseButton" onclick="closeInspect()">
-                        <span class="material-symbols-outlined crossIcon">
-                            close
-                        </span>
-                    </div>
-                    <% } %>
-                    <a class="ticket button" target="_blank" rel="noopener" href="">
-                        <span class="material-symbols-outlined ticketIcon">
-                            local_activity
-                        </span>
-                        <p>Boka Biljetter</p>
-                    </a>
-                </div>
-            </div>
+            <%- include('./partials/filmInspect.ejs') %>
         </main>
 
         <%- include('./partials/footer.ejs') %>

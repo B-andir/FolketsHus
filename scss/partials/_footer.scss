@@ -5,8 +5,10 @@ footer {
     bottom: 0;
     width: 100vw;
     height: 60vh;
-
-    background-color: $grey-dark;
+    padding-bottom: 3vh;
+    
+    background: rgb(24,26,27);
+    background: linear-gradient(0deg, rgba(24,26,27,1) 35%, rgba(88,43,57,1) 100%);
     color: $main;
     font-family: 'Roboto', sans-serif;
 
@@ -19,6 +21,7 @@ footer {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        height: 80%;
 
         .footerElement {
             width: 25%;
@@ -41,15 +44,43 @@ footer {
             font-style: normal;
             text-decoration: none;
             color: $red;
+            text-shadow: 1px 1px 3px $soft-dark;
         }
     
-        #footerSection2 {
+        #footerSection2 {  // Central Map section
             align-self: center;
-            width: 40vw;
+            height: 100%;
+            width: auto;
+            border: 4px ridge $black-contrast;
+            border-radius: 2px;
             iframe {
-                width: 95%;
+                height: 100%;
             }
         }
     }
 
+}
+
+@media only screen and (max-width: 975px) {
+    footer {
+        min-height: 600px;
+        height: 90vh;
+
+        #footerContainer {
+            height: 90%;
+            flex-direction: column !important;
+            justify-content: start;
+            align-items: center;
+            gap: 2vh;
+
+            .footerElement {
+                width: 80vw !important;
+            }
+        }
+
+        #footerSection2 {  // Central map section
+            max-height: 40vh;
+            border: 0 !important;
+        }
+    }
 }
