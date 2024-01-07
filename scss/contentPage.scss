@@ -229,7 +229,7 @@
     }
 
     .element:nth-child(even) {
-        flex-direction: column;
+        flex-direction: column !important;
     }
 
     .element:first-of-type {
