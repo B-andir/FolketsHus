@@ -32,6 +32,8 @@
             background-size: contain;
             background-repeat: no-repeat;
             filter: blur(5px);
+            overflow: hidden;
+            background-clip: content-box;
         }
 
         .flexContent {
@@ -52,6 +54,7 @@
 
         img {
             width: 80%;
+            overflow: hidden;
         }
     }
 
