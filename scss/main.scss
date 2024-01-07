@@ -39,6 +39,7 @@ h1 {
 }
 
 #pageContainer {
+    overflow-x: hidden;
     position: relative;
     width: 100vw;
     min-height: 100vh;
