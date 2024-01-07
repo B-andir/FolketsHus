@@ -39,11 +39,11 @@ h1 {
 }
 
 #pageContainer {
-    overflow-x: hidden;
     position: relative;
     width: 100vw;
     min-height: 100vh;
-    padding-bottom: 5vh;
+    padding-bottom: 8vh;
+    overflow-x: hidden;
 }
 
 #contentWrap {

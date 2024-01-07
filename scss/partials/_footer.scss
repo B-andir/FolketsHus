@@ -5,8 +5,8 @@ footer {
     left: 0;
     bottom: 0;
     width: 100vw;
-    height: 60vh;
-    padding-bottom: 3vh;
+    height: max-content;
+    padding-bottom: 6vh;
     padding-top: 2vh;
     
     background: rgb(24,26,27);
@@ -70,7 +70,7 @@ footer {
 @media only screen and (max-width: 975px) {
     footer {
         min-height: 600px;
-        height: 90vh;
+        height: max-content;
 
         #footerContainer {
             height: 90%;
@@ -85,12 +85,13 @@ footer {
         }
 
         #footerSection2 {  // Central map section
-            max-height: 40vh;
             border: 0 !important;
             width: 98vw !important;
+            height: 25vh !important;
 
             iframe {
                 width: 100% !important;
+                height: 100% !important;
             }
         }
     }
