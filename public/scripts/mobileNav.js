@@ -274,3 +274,11 @@ function enableScroll() {
   window.removeEventListener('touchmove', preventDefault, wheelOpt);
   window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
 }
+
+function kontaktButton() {
+    burgerClicked();
+    $([document.documentElement, document.body]).animate({
+        scrollTop: 
+            $("#footer").offset().top
+    }, 1600);
+}

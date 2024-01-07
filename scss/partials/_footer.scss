@@ -1,5 +1,5 @@
 footer {
-    z-index: 10;
+    z-index: 2;
     overflow-y: hidden;
     position: absolute;
     left: 0;
@@ -80,13 +80,18 @@ footer {
             gap: 2vh;
 
             .footerElement {
-                width: 80vw !important;
+                width: 80vw;
             }
         }
 
         #footerSection2 {  // Central map section
             max-height: 40vh;
             border: 0 !important;
+            width: 98vw !important;
+
+            iframe {
+                width: 100% !important;
+            }
         }
     }
 }
