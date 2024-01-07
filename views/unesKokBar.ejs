@@ -2,7 +2,7 @@
 
 <head>
     <%- include('./partials/head.ejs') %>
-    <!-- <link rel='stylesheet' href='/style/[file].css'> -->
+    <link rel='stylesheet' href='/style/contentPage.css'>
 </head>
 
 <body>
@@ -13,9 +13,92 @@
     <% } %>
 
     <div id="pageContainer">
-        <main id="contentWrap">
+        <main id="contentWrap" class="evenReverse">
 
             <!-- [content] -->
+            <div class="element flex-double">
+                <div class="bg-image" style="background-image: url(/images/Unes/bar.jpg); background-size: 150%; "></div>
+                <div class="flexContent flex-column text dark">
+                    <div class="topleft logoimage" style="background-image: url(/images/Logo/ukob.png);"></div>
+                    <h2>Unes Kök & Bar</h2>
+                    <p class="bold">Folkets Hus kan nu meddela att vi har skrivit kontrakt med en ny restaurangentrepenör.  Det är Unes Kök och Bar och vi hälsar krögarparet Jimmy och Kia Uneskog VARMT VÄLKOMNA till oss.</p>
+                        <div class="textSep2"></div>
+                    <p>Restaurangen kommer att vara en lunchrestaurang med öppettider vardagar  9.30 - 14.00. Håll utkik på vår hemsida och andra kanaler eftersom ambitionen finns att framgent ha utökade öppettider… Menyn ser ni i rutan här  bredvid.</p>
+                        <div class="textSep4"></div>
+                    <p>Vi gläds Med Unes att så många hittat tillbaks till restaurangen i vårt Folkets Hus, trots att den varit stängd i 2,5 månader! Vi som jobbat ”bakom kulisserna” är glada att det ändå gick så fort.</p>
+                        <div class="textSep4"></div>
+                    <p>Styrelsen Folkets Hus</p>
+                </div>
+                <div class="flexContent" id="unesMenyContainer">
+                    <div id="unesMeny">
+                        <img src="/images/Unes/Meny/Meny-v1.jpg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="element flex-double">
+                <div class="flexContent text" style="max-width: 20%;">
+                    <p>Vår nya restaurangentrepenör kommer att erbjuda samma service som tidigare vid Live på Bio.</p>
+                </div>
+                <div class="flexContent image">
+                    <img src="/images/Unes/opera.jpg">
+                </div>
+            </div>
+
+            <div class="element flex-double">
+                <div class="flexContent flex-column text">
+                    <h3>Konferens - mat och fika</h3>
+                    <p>Vi har nu skrivit avtal med vår nya Restaurangentrepenör Unes Kök och Bar och där ingår samma villkor som för tidigare entrepenörer</p>
+                    <h3>Förbeställd lunch eller middag</h3>
+                    <p>Se ovanstående kommentar!</p>
+                        <div class="textSep2"></div>
+                    <p>Vad gäller våra Live på Bio - föreställningar var första föreställningen 16/9 kl 18. Unes ställde upp med möjligheten att före föreställningen boka två alternativ: Räkmacka o alkoholfritt vin/ bubbel eller kaffe och fikabröd.<br>Inte nog med det; I foajéen bjöd man på en liten väkomst drink alkoholfritt för drygt 50 gäster med snacks. Snyggt uppdukat med blommor.</p>
+                        <div class="textSep2"></div>
+                    <p>Det kommer att ta en stund innan alkoholtillstånden  är klara</p>
+                </div>
+                <div class="flexContent image">
+                    <img src="/images/Unes/restaurang.jpg">
+                </div>
+            </div>
+
+            <div class="element flex-double">
+                <div class="flexContent flex-column text">
+                    <h3>Nöjesarrangemang</h3>
+                    <p>Här kan vi i Folkets Hus servera alla ingredienser för att ge er en bra och kostnadseffektiv lösning.</p>
+                        <div class="textSep2"></div>
+                    <p>Gör så här:</p>
+                    <ul>
+                        <li>
+                            Boka lokal hos Folkets Hus.
+                            <br>
+                            Tel expeditionen: 0175 221 40 (mån, ons, tor, fre 10-14)
+                        </li>
+                        <li>
+                            Är teknikbehovet större än Folkets Hus egna resurser finns det resurser för avancerad ljus- och ljudteknik  på orten. Kontakta <a href="https://www.facebook.com/Roslagens-Scenteknik-221002788268963">Roslagens Scenteknik</a> för offert. 
+                        </li>
+                    </ul>
+                    <p>Här finns också möjligheten, att utifrån ert önskemål, del- eller samlingsfakturera ert arrangemang.</p>
+                </div>
+                <div class="flexContent image">
+                    <img src="/images/Unes/live-koncert.jpg">
+                </div>
+            </div>
+
+            <div class="element flex-double">
+                <div class="flexContent flex-column text center" style="min-width: 310px;">
+                    <h3>
+                        Våra nya Restaurangentrepenörer! Jimmy och Kia Uneskog
+                        <br>
+                        VARMT VÄLKOMNA!
+                    </h3>
+                    <div class="textSep.4"></div>
+                    <h4>Följ oss gärna på Facebook</h4>
+                    <a id="unesFacebook" href="https://sv-se.facebook.com/people/Unes-k%C3%B6k-bar/61550630523498/" style="background-image: url(images/facebook.png);"></a>
+                </div>
+                <div class="flexContent image">
+                    <img src="/images/Unes/uneskog.jpg">
+                </div>
+            </div>
 
         </main>
         <%- include('./partials/footer.ejs') %>

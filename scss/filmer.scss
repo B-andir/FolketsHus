@@ -214,6 +214,9 @@ main {
                 display: flex;
                 flex-direction: row;
                 
+                cursor: pointer;
+
+                transition: all 0.15s ease;
 
                 img {
                     aspect-ratio: 2 / 3;
@@ -237,6 +240,8 @@ main {
 
                     h2 {
                         margin-top: 0.5em;
+
+                        transition: color 0.3s ease;
                     }
 
                     p {
@@ -259,6 +264,18 @@ main {
                         }
                     }
                 }
+
+                &:hover {
+                    box-shadow: 2px 2px 6px 1px rgba($grey, 0.6);
+                    background: linear-gradient(347deg, rgba(190,166,160,0.2) 2%, rgba(255,255,255,0) 72%);
+                    border-top-right-radius: 8px;
+                    border-top-left-radius: 8px;
+                    transform: translateY(-3px);
+                    
+                    .mainBody h2 {
+                        color: $red;
+                    }
+                }
             }
 
             &#moreList {
@@ -279,6 +296,13 @@ main {
                         font-size: 1.6em;
                         width: max-content;
                         font-family: "Roboto",sans-serif;
+                        text-decoration: underline;
+
+                        transition: color 0.1s ease;
+
+                        &:hover {
+                            color: $red
+                        }
                     }
 
                     .filmElement {

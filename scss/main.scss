@@ -42,11 +42,13 @@ h1 {
     position: relative;
     width: 100vw;
     min-height: 100vh;
+    padding-bottom: 5vh;
 }
 
 #contentWrap {
     // padding-top: 6vh;
     width: 100vw;
+    min-height: 101vh;
 }
 
 .redirect {

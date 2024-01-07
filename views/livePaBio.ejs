@@ -40,15 +40,49 @@
                             <img src="/images/Logo/fhp.png" id="fhpLogo">
                     </div>
                 </div>
+                <!-- <div class="informationElement">
+                    <div class="header" onclick="informationClicked()">
+                        <h2>Pausförtäring från Unes Kök & Bar</h2>
+                        <span class="material-symbols-outlined expandArrow rightElement">expand_less</span>
+                        <span class="material-symbols-outlined info rightElement">info</span>
+                    </div>
+                    <div class="content">
+                            <p>
+                                Våra operaföreställningar direktsänds från <a href="https://www.metopera.org/" target="_blank">Metropolitan i New York.</a> Här får du även se det som pågår bakom scenen inför en föreställning och i pauserna, lyssna till intervjuer med skådespelarna och uppleva opera när den är som bäst. Dessa direktsändningar når ut till 2 200 biografer i 70 länder på sex kontinenter.
+                            </p>
+                            <p>
+                                På grund av Rysslands invasion av Ukraina kommer vi ej att visa balettföreställningar från <a href="https://www.bolshoi.ru/en/" target="_blank">Bolsjoj</a>.
+                            </p>
+                            <p>
+                                Utöver opera och balett visar vi även konserter och teaterföreställningar.
+                            </p>
+                            <p class="bold">
+                                Live på bio är ett samarbete med
+                            </p>
+                            <img src="/images/Logo/fhp.png" id="fhpLogo">
+                    </div>
+                </div> -->
             </div>
 
             <!-- Uppkommande Filmer -->
             <div id="moviesContainer">
                 <h1>Uppkommande Livesändningar</h1>
-                <div id="moviesList" data-list-type="normal">
+                <div class="moviesList" id="moviesList" data-list-type="normal">
                     <% for (let index = 0; index < Object.keys(films).length; index++) { const element = films[index]; %>
                         <%- include('./partials/filmElement.ejs', { film: element, id: index, type: 'live' }) %>
                     <% } %>
+                </div>
+                
+                <h1 id="moreTitle">Mer på Bio Rosen</h1>
+                <div class="moviesList" id="moreList">
+                    <div class="moreItem">
+                        <h2 class="redirect moreOverhead" onclick="redirectToUrl('bio-rosen/filmer')">Filmer</h2>
+                        <%- include('./partials/filmElement.ejs', { film: more.film, id: 2001, type: 'film' }) %>
+                    </div>
+                    <div class="moreItem">
+                        <h2 class="redirect moreOverhead" onclick="redirectToUrl('bio-rosen/bio-kontrast')">Bio Kontrast</h2>
+                        <%- include('./partials/filmElement.ejs', { film: more.kontrast, id: 2002, type: 'kontrast' }) %>
+                    </div>
                 </div>
             </div>
 

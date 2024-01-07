@@ -41,6 +41,8 @@ function closeInspect() {
     document.getElementById('inspectMovieBackground').classList.add('hidden');
     document.getElementById('inspectMovie').classList.add('hidden');
     
+    document.querySelector('#inspectTrailer .youtubeTrailer').setAttribute('src', '');
+
     document.removeEventListener('scroll', scrollClose);
 
     inspectOpen = false;
@@ -57,19 +59,13 @@ function movieElementClicked(targetID) {
     targetID = '#' + targetID;
 
     let trailerURL = document.querySelector(targetID + ' .youtubeTrailer').getAttribute('src');
-    console.log(trailerURL)
-
 
 
     if (trailerURL.length > 6) {
         document.querySelector('#inspectTrailer .youtubeTrailer').setAttribute('src', trailerURL);
-    } else {
-        document.querySelector('#inspectTrailer .youtubeTrailer').setAttribute('src', '');
     }
 
     document.querySelector('#inspectBody .poster img').setAttribute('src', document.querySelector(targetID + ' .poster').getAttribute('src'));
-
-    console.log(document.querySelector(targetID + ' .type').innerHTML);
 
     const ticketButton = document.querySelector('#inspectFooter .ticket');
     if (document.querySelector(targetID + ' .type').innerHTML != 'kontrast') {
