@@ -3,7 +3,7 @@
 
 main {
 
-    padding: 0 0 5vh 0;
+    padding: 0;
     width: 80vw;
     min-height: 101vh;
     
@@ -167,7 +167,6 @@ main {
         // background-color: aquamarine;
         width: 80%;
         padding-top: 15vh;
-        padding-bottom: 5vh;
 
         // border-left: 1px solid $main-dark;
         // border-right: 1px solid $main-dark;
@@ -659,6 +658,8 @@ html:not([data-is-mobile = "false"]) {
         width: 100% !important;
         height: fit-content;
 
+        padding-bottom: 4vh;
+
         #information {
             position: relative !important;
             top: 0;
@@ -724,6 +725,21 @@ html:not([data-is-mobile = "false"]) {
                         }
                     }
                 }
+
+                &#moreList {
+                    flex-direction: column;
+
+                    .moreItem {
+                        width: 100% !important;
+                        height: 25vh !important;
+                        min-height: 10em !important;
+
+                        .moreOverhead {
+                            padding-left: 5vw;
+                            font-size: 2.0em;
+                        }
+                    }
+                }
             }
         }
 
@@ -747,7 +763,8 @@ html:not([data-is-mobile = "false"]) {
                 position: relative;
                 top: 0;
 
-                height: 40vh;
+                width: 100vw;
+                height: auto;
                 display: flex;
                 justify-content: center;
                 background: radial-gradient(circle, rgba(38,62,99,1) 0%, rgba(0,0,0,1) 62%);
@@ -757,14 +774,14 @@ html:not([data-is-mobile = "false"]) {
 
                     aspect-ratio: 16/9;
                     height: 100%;
-                    width: auto;
+                    // width: auto;
                 }
             }
 
             #inspectBody {
                 .description {
-                    margin-top: 10vh;
-                    max-height: 100px;
+                    margin-top: 6vh;
+                    max-height: 15vh;
                     overflow-y: scroll;
                     width: 80%;
                     padding: 0.5em 1em 0.5em 0;
@@ -775,6 +792,8 @@ html:not([data-is-mobile = "false"]) {
 
                 .poster {
                     max-width: 172px;
+
+                    top: 22%;
                 }
 
                 .runDate {

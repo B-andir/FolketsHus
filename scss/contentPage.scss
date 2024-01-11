@@ -12,14 +12,18 @@
 
         padding: 4vh 0;
 
-        background-color: $main;
+        background-color: $main-light;
         
         box-shadow: 0px -3px 4px $grey;
 
         &:first-of-type {
             padding-top: 8vh;
-            padding-bottom: 0;
+            padding-bottom: 5vh;
+        }
+
+        &.screenHeight {
             height: 100vh;
+            padding-bottom: 0;
         }
 
         .bg-image {
@@ -39,6 +43,11 @@
         .flexContent {
             position: relative;
             z-index: 1;
+        }
+
+        &.minHeight50 {
+            // min-height: 50vh;
+            height: max-content;
         }
     }
 }
@@ -91,7 +100,19 @@
             text-align: center;
         }
 
+        &.centerVert {
+            height: inherit !important;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            p {
+                height: fit-content
+            }
+        }
+
         h2 {
+            margin-top: 0;
             font-family: 'Roboto', sans-serif;
 
             font-size: 2.0em;
@@ -114,7 +135,6 @@
             font-family: sans-serif;
 
             margin: 2px 0px;
-            text-align: center;
 
             &.bold {
                 font-weight: bold;
@@ -179,6 +199,7 @@
 
 
 
+
 // Uniques
 
 #unesMeny {
@@ -211,6 +232,10 @@
 @media only screen and (max-width: 1200px) and (min-width: 980px) {
     .element {
         justify-content: space-around;
+
+        &.flexCenter {
+            justify-content: center !important;
+        }
     }
 }
 

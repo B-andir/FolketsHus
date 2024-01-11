@@ -279,6 +279,6 @@ function kontaktButton() {
     burgerClicked();
     $([document.documentElement, document.body]).animate({
         scrollTop: 
-            $("#footer").offset().top
+            $("#footer").offset().top - 65.324
     }, 1600);
 }

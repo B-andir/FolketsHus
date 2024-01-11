@@ -1,7 +1,8 @@
 footer {
-    z-index: 2;
+    z-index: 1;
     overflow-y: hidden;
-    position: absolute;
+    // position: absolute;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100vw;
@@ -39,6 +40,10 @@ footer {
             h2 {
                 padding-bottom: 1em;
             }
+
+            p {
+                margin-left: 1vw;
+            }
         }
     
     
@@ -55,12 +60,32 @@ footer {
     
         #footerSection2 {  // Central Map section
             align-self: center;
-            height: 100%;
+            height: 32vh;
             width: auto;
             border: 4px ridge $black-contrast;
             border-radius: 2px;
             iframe {
                 height: 100%;
+            }
+        }
+
+        #footerSection3 {
+
+            #socials {
+                a {
+                    display: block;
+                    width: 3.5em;
+                    height: 3.5em;
+                    margin-left: 2em;
+                    border-radius: 100%;
+
+                    .image {
+                        width: 100%;
+                        height: 100%;
+                        background-size: contain;
+                        border-radius: inherit;
+                    }
+                }
             }
         }
     }
@@ -72,6 +97,10 @@ footer {
         min-height: 600px;
         height: max-content;
         padding-bottom: 20vh;
+
+        h2 {
+            margin: 1em; 
+        }
 
         #footerContainer {
             height: 90%;
@@ -86,13 +115,83 @@ footer {
         }
 
         #footerSection2 {  // Central map section
-            border: 0 !important;
-            width: 98vw !important;
-            height: 25vh !important;
+            // border: 0 !important;
+            width: 85vw !important;
+            height: 32vw !important;
 
             iframe {
                 width: 100% !important;
                 height: 100% !important;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    footer {
+
+        #footerSection2 {  // Central map section
+            border: 0 !important;
+            width: 95vw !important;
+            height: 95vw !important;
+
+            iframe {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+    }
+}
+
+html:has([data-is-mobile = "true"]) {
+    footer {
+        min-height: 600px;
+        height: max-content;
+        padding-bottom: 20vh;
+
+        h2 {
+            text-align: center;
+        }
+
+        #footerContainer {
+            text-align: center;
+            height: 90%;
+            flex-direction: column !important;
+            justify-content: start;
+            align-items: center;
+            gap: 2vh;
+
+            .footerElement {
+                width: 80vw;
+            }
+        }
+
+        #footerSection2 {  // Central map section
+            border: 0 !important;
+            width: 98vw !important;
+            height: 98vw !important;
+
+            iframe {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+
+        #socials {
+
+            a {
+                margin-left: 0 !important;
+                width: 100% !important;
+                border-radius: 0 !important;
+                
+                display: flex !important;
+                justify-content: center;
+
+                .image {
+                    width: 5em !important;
+                    height: 5em !important;
+                    border-radius: 100% !important;
+                }
             }
         }
     }

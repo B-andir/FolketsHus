@@ -42,7 +42,7 @@ h1 {
     position: relative;
     width: 100vw;
     min-height: 100vh;
-    padding-bottom: 8vh;
+    // padding-bottom: 8vh;
     overflow-x: hidden;
 }
 
@@ -54,4 +54,26 @@ h1 {
 
 .redirect {
     cursor: pointer;
+}
+
+.popupCover {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(white, 0.4);
+    backdrop-filter: blur(4px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        max-height: 95vh;
+        max-width: 95vw;
+        min-width: Min(90vw, 50vh);
+    }
 }

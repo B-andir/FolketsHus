@@ -3,6 +3,7 @@
 <head>
     <%- include('./partials/head.ejs') %>
     <link rel='stylesheet' href='/style/contentPage.css'>
+    <script src="/scripts/imageInspect.js"></script>
 </head>
 
 <body>
@@ -16,7 +17,7 @@
         <main id="contentWrap" class="evenReverse">
 
             <!-- [content] -->
-            <div class="element flex-double">
+            <div class="element flex-double screenHeight">
                 <div class="bg-image" style="background-image: url(/images/Unes/bar.jpg); background-size: 150%; "></div>
                 <div class="flexContent flex-column text dark">
                     <div class="topleft logoimage" style="background-image: url(/images/Logo/ukob.png);"></div>
@@ -31,13 +32,13 @@
                 </div>
                 <div class="flexContent" id="unesMenyContainer">
                     <div id="unesMeny">
-                        <img src="/images/Unes/Meny/Meny-v1.jpg">
+                        <img src="/images/Unes/Meny/Meny-v1.jpg" onclick="inspectImage()">
                     </div>
                 </div>
             </div>
 
             <div class="element flex-double">
-                <div class="flexContent text" style="max-width: 20%;">
+                <div class="flexContent text center centerVert" style="max-width: 20%;">
                     <p>Vår nya restaurangentrepenör kommer att erbjuda samma service som tidigare vid Live på Bio.</p>
                 </div>
                 <div class="flexContent image">
@@ -93,7 +94,7 @@
                     </h3>
                     <div class="textSep.4"></div>
                     <h4>Följ oss gärna på Facebook</h4>
-                    <a id="unesFacebook" href="https://sv-se.facebook.com/people/Unes-k%C3%B6k-bar/61550630523498/" style="background-image: url(images/facebook.png);"></a>
+                    <a id="unesFacebook" href="https://sv-se.facebook.com/people/Unes-k%C3%B6k-bar/61550630523498/" target="_blank" style="background-image: url(images/facebook.png);"></a>
                 </div>
                 <div class="flexContent image">
                     <img src="/images/Unes/uneskog.jpg">

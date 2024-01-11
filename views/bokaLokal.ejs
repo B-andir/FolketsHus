@@ -2,7 +2,19 @@
 
 <head>
     <%- include('./partials/head.ejs') %>
-    <!-- <link rel='stylesheet' href='/style/[file].css'> -->
+    <link rel='stylesheet' href='/style/contentPage.css'>
+    <link rel='stylesheet' href='/style/slideshow.css'>
+    <script src="/scripts/slideshows.js"></script>
+
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
 </head>
 
 <body>
@@ -16,6 +28,108 @@
         <main id="contentWrap">
 
             <!-- [content] -->
+            <div class="element centerVert">
+                <div class="flex-double">
+                    <div class="flexContent flex-column text">
+                        <h2>Boka våra lokaler</h2>
+                        <h4>Lokaler för alla slags aktiviteter</h4>
+                        <p>Vi har lokaler för alla tänkbara möten. Från det lilla föreningsmötet för 8-10 personer till den stora föreläsningen för 250 personer. Lokalerna kan även användas till stora eller små middagsbjudningar. Bjud upp till dans på vårt stora dansgolv i Häverösalen.</p>
+                            <div class="textSep2"></div>
+                        <p>Våra två stora salar, Häverösalen och Edebosalen, är åtskiljda av en vikvägg som när den öppnas upp ger möjigheter för stora sammankomster. </p>
+                            <div class="textSep2"></div>
+                        <p>I huset finns <a href="/unes-kok-bar">Unes Kök & Bar</a> som kan servera fika, luncher och middagar för alla deltagare.</p>
+                    </div>
+                    <div class="flexContent image large">
+                        <img src="/images/BL/base.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="element flex-double minHeight50 flexCenter">
+                <div class="flexContent flex-column text">
+                    <h2>Häverösalen</h2>
+                    <p>Häverösalen är vår största lokal för konferens, fester och större sammankomster. Den ligger i anslutning till Häveröbaren med sitt kök och kan också kopplas ihop med Edebosalen.</p>
+                    <div class="textSep2"></div>
+                    <p>I Häveröbaren finns diskmaskin och köksutrustning, stora kaffebryggare och stor kyl. Samt en serveringsdisk. Hyra för Häveröbaren tillkommer.</p>
+                    <div class="textSep4"></div>
+                    <p>Utrustning:<br>Hörselslinga, mikrofoner, både trådlöst och med sladd, CD spelare och över dansgolvet finns det en ljusorgel.</p>
+                    <div class="textSep4"></div>
+                    <p>Mått:<br>Yta: 294 kvm<br>Takhöjd: 3 m</p>
+                    <div class="textSep4"></div>
+                    <p>Vid standardmöbleringen i Häverösalen finns plats för 80 personer, med restaurangsittning finns plats för 120 personer. Andra möbleringar kan till exempel vara skolsittning för ca 150 personer eller biosittning för ca 200 personer.</p>
+                </div>
+                <div class="slideshow" id="slideshow01">
+                    <div class="imageContainer">
+                        <div class="slideshowImage duplicate previus" data-src="/images/BL/Häverö/07.jpg"></div>
+                        <div class="slideshowImage active" data-src="/images/BL/Häverö/01.jpg"></div>
+                        <div class="slideshowImage next" data-src="/images/BL/Häverö/02.jpg"></div>
+                        <div class="slideshowImage hidden" data-src="/images/BL/Häverö/03.jpg"></div>
+                        <div class="slideshowImage hidden" data-src="/images/BL/Häverö/04.jpg"></div>
+                        <div class="slideshowImage hidden" data-src="/images/BL/Häverö/05.jpg"></div>
+                        <div class="slideshowImage hidden" data-src="/images/BL/Häverö/06.jpg"></div>
+                        <div class="slideshowImage previus" data-src="/images/BL/Häverö/07.jpg"></div>
+                        <div class="slideshowImage duplicate active" data-src="/images/BL/Häverö/01.jpg"></div>
+                    </div>
+                    <div class="slideshowButtonContainer">
+                        <div class="slideshowButton left">
+                            <span class="material-symbols-outlined" onclick="leftClicked()">
+                                chevron_left
+                            </span>
+                        </div>
+                        <div class="slideshowButton right">
+                            <span class="material-symbols-outlined" onclick="rightClicked()">
+                                chevron_right
+                            </span>
+                        </div>
+                    </div>
+                    <div class="slideshowSelection">
+                        <span class="material-symbols-outlined" onclick="selectionClicked()">radio_button_checked</span>
+                        <span class="material-symbols-outlined" onclick="selectionClicked()">radio_button_unchecked</span>
+                        <span class="material-symbols-outlined" onclick="selectionClicked()">radio_button_unchecked</span>
+                        <span class="material-symbols-outlined" onclick="selectionClicked()">radio_button_unchecked</span>
+                        <span class="material-symbols-outlined" onclick="selectionClicked()">radio_button_unchecked</span>
+                        <span class="material-symbols-outlined" onclick="selectionClicked()">radio_button_unchecked</span>
+                        <span class="material-symbols-outlined" onclick="selectionClicked()">radio_button_unchecked</span>
+                    </div>
+                </div>
+            </div>
+            <div class="element flex-double minHeight50 flexCenter">
+                <div class="flexContent flex-column text">
+                    <h2>Edebosalen</h2>
+                    <p>Edebosalen är vår näst största lokal. Den kan kopplas ihop med Häverösalen genom att öppna upp vikväggen mellan salarna. Edebosalen ligger även den i anslutning till Häveröbaren.</p>
+                    <div class="textSep4"></div>
+                    <p>Utrustning:<br>Whiteboard och filmduk</p>
+                    <div class="textSep4"></div>
+                    <p>Mått:<br>Yta: 119 kvm</p>
+                    <div class="textSep4"></div>
+                    <p>Vid möblering för skolsittning finns plats för 48 personer. Andra möbleringar som U-bord för ca 30 personer eller biosittning för ca 60 personer fungerar utmärkt.</p>
+                </div>
+                <div class="slideshow" id="slideshow02">
+                    <div class="imageContainer">
+                        <div class="slideshowImage duplicate previus" data-src="/images/BL/Edebo/03.jpg"></div>
+                        <div class="slideshowImage active" data-src="/images/BL/Edebo/01.jpg"></div>
+                        <div class="slideshowImage next" data-src="/images/BL/Edebo/02.jpg"></div>
+                        <div class="slideshowImage previus" data-src="/images/BL/Edebo/03.jpg"></div>
+                        <div class="slideshowImage duplicate active" data-src="/images/BL/Edebo/01.jpg"></div>
+                    </div>
+                    <div class="slideshowButtonContainer">
+                        <div class="slideshowButton left">
+                            <span class="material-symbols-outlined" onclick="leftClicked()">
+                                chevron_left
+                            </span>
+                        </div>
+                        <div class="slideshowButton right">
+                            <span class="material-symbols-outlined" onclick="rightClicked()">
+                                chevron_right
+                            </span>
+                        </div>
+                    </div>
+                    <div class="slideshowSelection">
+                        <span class="material-symbols-outlined" onclick="selectionClicked()">radio_button_checked</span>
+                        <span class="material-symbols-outlined" onclick="selectionClicked()">radio_button_unchecked</span>
+                        <span class="material-symbols-outlined" onclick="selectionClicked()">radio_button_unchecked</span>
+                    </div>
+                </div>
+            </div>
 
         </main>
         <%- include('./partials/footer.ejs') %>
