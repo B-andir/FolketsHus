@@ -56,6 +56,24 @@ $(document).ready ( () => {
 });
 
 
+// Utility
+
+function checkVisible(elm, threshold, mode) {
+    threshold = threshold || 0;
+    mode = mode || 'visible';
+  
+    var rect = elm.getBoundingClientRect();
+    var viewHeight = window.innerHeight;
+    var above = rect.bottom - threshold < 0;
+    var below = rect.top - viewHeight + threshold >= 0;
+
+    var result = mode === 'above' ? above : (mode === 'below' ? below : !above && !below);
+
+  
+    return result;
+  }
+
+
 // Slideshow automation
 
 function stopClock() {
@@ -89,7 +107,9 @@ function advanceAllSlides() {
     for (let index = 0; index < slideshowElements.length; index++) {
         const element = slideshowElements[index];
 
-        rightClicked(element);
+        if (checkVisible(element, 190)) {
+            rightClicked(element);
+        } 
     };
 }
 
