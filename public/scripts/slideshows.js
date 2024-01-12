@@ -3,6 +3,8 @@ var slideshowElements;
 
 var touchStartX = 0;
 var touchEndX = 0;
+var lastTouchX = 0;
+var touchTarget;
 
 var clock = 0;
 var active = true;                 
@@ -17,13 +19,19 @@ $(document).ready ( () => {
         element.addEventListener('mouseleave', startClock);
         
         element.addEventListener('touchstart', (event) => {
-            touchStartX = event.changedTouches[0].screenX;
+            touchTarget = getParentSlideshowElement(event.target)['slideshow'];
+            touchStartX = lastTouchX = event.changedTouches[0].clientX;
             stopClock();
         });
+        
         element.addEventListener('touchend', (event) => {
-            touchEndX = event.changedTouches[0].screenX;
+            touchEndX = event.changedTouches[0].clientX;
             startClock();
             handleSwipeGesture(event.target);
+        });
+
+        element.addEventListener('touchmove', (event) => {
+            handleTouchMoveSlideshow(event.touches[0].clientX);
         });
 
         const imageContainer = element.children[0];
@@ -47,34 +55,43 @@ $(document).ready ( () => {
     }
 });
 
+
 // Slideshow automation
 
 function stopClock() {
+    console.log("Stop");
     clock = 0;
     active = false;
 }
 
 function startClock() {
+    console.log("Start");
     active = true;
 }
 
 (function () {
     if (active) {
-        clock += 500;
+        window.requestAnimationFrame( () => {
+            clock += 500;
+        });
     }
 
     if (clock >= 6000) {
-        for (let index = 0; index < slideshowElements.length; index++) {
-            const element = slideshowElements[index];
-
-            rightClicked(element);
-        };
+        window.requestAnimationFrame(advanceAllSlides);
 
         clock = 0;
     }
 
     setTimeout(arguments.callee, 500);
 })();
+
+function advanceAllSlides() {
+    for (let index = 0; index < slideshowElements.length; index++) {
+        const element = slideshowElements[index];
+
+        rightClicked(element);
+    };
+}
 
 
 // Slideshow functionality
@@ -91,7 +108,7 @@ function setSlide(parent, slideshow, slideshowIndex, targetSlide) {
     if (targetSlide == 0) {
         $(slideshow).animate({
             left: offset + "px",
-        }, 500, 'easeInOutCubic', () => {
+        }, 600, 'easeOutCubic', () => {
             $(slideshow).css({
                 left: getOffset(slideshows[slideshowIndex].slideCount) + "px"
             });
@@ -101,7 +118,7 @@ function setSlide(parent, slideshow, slideshowIndex, targetSlide) {
     } else if (targetSlide > slideshows[slideshowIndex].slideCount) {
         $(slideshow).animate({
             left: offset + "px",
-        }, 500, 'easeInOutCubic', () => {
+        }, 600, 'easeOutCubic', () => {
             $(slideshow).css({
                 left: getOffset(1) + "px"
             });
@@ -109,10 +126,9 @@ function setSlide(parent, slideshow, slideshowIndex, targetSlide) {
 
         slideshows[slideshowIndex].currentSlide = 1;
     } else {
-        console.log(offset)
         $(slideshow).animate({
             left: offset + "px",
-        }, 500, 'easeInOutCubic');
+        }, 600, 'easeOutCubic');
 
         slideshows[slideshowIndex].currentSlide = targetSlide;
     }
@@ -179,18 +195,43 @@ function selectionClicked(target) {
     setSlide(parentSlideshowObj['parent'], parentSlideshowObj['slideshow'], parentSlideshowObj['slideshowIndex'], targetSlide + 1)
 }
 
+function reCenter(target) {
+    const elementObj = getParentSlideshowElement(target);
+
+    var slideshowIndex = elementObj['slideshowIndex'];
+    var slideshow = elementObj['slideshow'];
+    
+    var offset = getOffset(slideshows[slideshowIndex].currentSlide);
+
+    $(slideshow).animate({
+        left: offset + "px",
+    }, 200, 'easeInCubic');
+}
+
 function handleSwipeGesture(target) {
     if (touchEndX < touchStartX) {
         // Left
 
-        if (Math.abs(touchEndX - touchStartX) > 20) {
-            leftClicked(target)
+        if (Math.abs(touchEndX - touchStartX) > 100) {
+            rightClicked(target)
+        } else {
+            reCenter(target)
         }
     } else if(touchEndX > touchStartX) {
         // Right
 
-        if (Math.abs(touchEndX - touchStartX) > 20) {
-            rightClicked(target)
+        if (Math.abs(touchEndX - touchStartX) > 100) {
+            leftClicked(target)
+        } else {
+            reCenter(target)
         }
     }
+}
+
+function handleTouchMoveSlideshow(moveX) {
+    var diff = lastTouchX - moveX;
+
+    $(touchTarget).css('left', '-=' + diff + 'px')
+
+    lastTouchX = moveX;
 }
