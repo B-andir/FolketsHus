@@ -1,0 +1,187 @@
+@import "partials/colors";
+
+#contentWrap {
+    display: flex;
+    flex-direction: column;
+    
+    width: 100vw;
+
+    .element {
+        position: relative;
+        width: 100vw;
+
+        padding: 4vh 0;
+
+        background-color: $main-light;
+        
+        box-shadow: 0px -3px 4px $grey;
+
+        &:first-of-type {
+            padding-top: 10vh;
+        }
+        
+
+        &:nth-child(even) {
+            background-color: $main-dark !important;
+        }
+        
+    }
+}
+
+.header {
+    margin: auto;
+    width: 80vw;
+    padding-top: 1vh;
+
+    &.center {
+        text-align: center;
+    }
+}
+
+.flexContent {
+    max-width: 80vw;
+    margin: auto;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+
+    &.text {
+        gap: 0px;
+        align-items: flex-start;
+    }
+}
+
+.flex-double {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+
+    &.even {
+        width: 100vw !important;
+        justify-content: space-evenly;
+    }
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+
+    &.even {
+        justify-content: space-evenly;
+    }
+}
+
+.align-flex-end {
+    align-items: flex-end;
+}
+
+.grid {
+    display: grid;
+
+    &.grid-4-1 {
+        grid-template-columns: 2fr 1fr;
+        gap: max(5vw, 50px)
+    }
+}
+
+.slim {
+    max-width: Min(20vw, 200px);
+    min-width: 170px;
+}
+
+.textSep2 {
+    height: 4px;
+}
+
+.textSep4 {
+    height: 8px;
+}
+
+.textSep8 {
+    height: 16px;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 2.4em;
+}
+
+h2 {
+    margin-top: 0;
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 2.0em;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 1.7em;
+}
+
+h4 {
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 1.4em;
+
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.1em;
+    font-family: sans-serif;
+
+    margin: 2px 0px;
+
+    &.bold {
+        font-weight: bold;
+    }
+}
+
+.text {
+
+    &.center {
+        text-align: center;
+    }
+}
+
+.portrait {
+    aspect-ratio: 12/16;
+
+    width: inherit;
+    height: auto;
+
+    object-fit: cover;
+
+    border-radius: 4px;
+
+    box-shadow: 2px 2px 5px $grey-dark;
+}
+
+#centralSection {
+    width: 60vw !important;
+}
+
+.increaseBR {
+
+    br {
+        content: "";
+        display: block;
+        font-size: 30%;
+        margin: 2em;
+    }
+}
+
+img  {
+
+    &.image {
+        min-width: 240px;
+    
+        box-shadow: 1px 1px 4px $black;
+        border-radius: 4px;
+    }
+}
