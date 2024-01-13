@@ -13,12 +13,12 @@ router.get('/om-huset', (req, res) => {
     res.render('omHuset', { title: 'Om Huset' });
 });
 
-router.get('/folkets-hus-100-ar', (req, res) => {
+router.get('/folkets-hus-hallstavik-100-ar', (req, res) => {
     res.render('folketsHus100Ar', { title: 'Folkets Hus 100 År' });
 });
 
 router.get('/vara-hyresgaster', (req, res) => {
-    res.render('varaHyresgaster', { title: 'Folkets Hus 100 År' });
+    res.render('varaHyresgaster', { title: 'Våra Hyresgäster' });
 });
 
 module.exports = router;

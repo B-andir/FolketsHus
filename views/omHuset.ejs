@@ -2,7 +2,8 @@
 
 <head>
     <%- include('./partials/head.ejs') %>
-    <!-- <link rel='stylesheet' href='/style/[file].css'> -->
+    <link rel='stylesheet' href='/style/omOss.css'>
+    <script src="/scripts/imageInspect.js"></script>
 </head>
 
 <body>
@@ -16,6 +17,86 @@
         <main id="contentWrap">
 
             <!-- [content] -->
+            <div class="element flex-column">
+                <div class="header">
+                    <h1>Om Huset</h1>
+                </div>
+                <div class="flexContent grid grid-3-2 hideMobile">
+                    <div class="text" style="max-width: 600px;">
+                        <p>Vårt fina Folkets Hus stod klart 1972 och invigdes av Olof Palme. Huset har en total yta av 3600 m2.</p>
+                        <div class="textSep4"></div>
+                        <p>I Folkets Hus finns bibliotek, restaurang, stora och små samlingssalar, bio/teatersalong försedd med digital
+                            utrustning för visning av bio i 3D med 7.1 surroundljud.
+                        </p>
+                        <div class="textSep4"></div>
+                        <p>Vår biosalong är även godkänd scen för Riksteaterföreställningar och här visar vi även direktsändningar av opera från
+                            Metropolitan i New York, baletter från Bolsjoj, teater, konserter mm via satellit från Sverige och hela världen.
+                        </p>
+                    </div>
+                    <img class="image" src="/images/OmHuset/01.jpg" alt="Biosalongen Rosen, sett från scenen" onclick="inspectImage()"
+                        style="max-width: 30vw; align-self: end;">
+                </div>
+                <div class="flexContent flex-column showMobile">
+                    <div class="text" style="max-width: 600px;">
+                        <p>Vårt fina Folkets Hus stod klart 1972 och invigdes av Olof Palme. Huset har en total yta av 3600 m2.</p>
+                        <div class="textSep4"></div>
+                        <p>I Folkets Hus finns bibliotek, restaurang, stora och små samlingssalar, bio/teatersalong försedd med digital
+                            utrustning för visning av bio i 3D med 7.1 surroundljud.
+                        </p>
+                        <div class="textSep4"></div>
+                        <p>Vår biosalong är även godkänd scen för Riksteaterföreställningar och här visar vi även direktsändningar av opera från
+                            Metropolitan i New York, baletter från Bolsjoj, teater, konserter mm via satellit från Sverige och hela världen.
+                        </p>
+                    </div>
+                    <div class="flexSpacer" style="height: 3vh"></div>
+                    <img class="image" src="/images/OmHuset/01.jpg" alt="Biosalongen Rosen, sett från scenen" onclick="inspectImage()"
+                        style="max-width: 30vw; min-width: 200px;">
+                </div>
+            </div>
+
+            <div class="element flex-column">
+                <div class="flexContent text" style="max-width: 1000px;">
+                    <p>Huset ritades av <a href="https://sv.wikipedia.org/wiki/Ove_Hidemark" target="_blank">Ove Hidemark</a> och <a
+                            href="https://sv.wikipedia.org/wiki/G%C3%B6ran_M%C3%A5nsson_(arkitekt)" target="_blank">Göran Månsson</a> och
+                        har fått pris för sin vackra arkitektur.
+                    </p>
+                    <div class="textSep4"></div>
+                    <p>Ove Hidemark uttryckte sig på följande sätt i tidskriften Arkitektur nr7 / 1973</p>
+                    <div class="textSep2"></div>
+                    <p class="indent">”Att byggnaden dessutom genom metallpartiernas starkt röda färg, foajéernas grönskimrande väggytor och
+                        de stora salarnas uttalade formspråk understyrker sin närvaro var från början meningen. Byggnaden skulle fungera som
+                        en individ i samhällsbilden och ge kulturlivet i kommunen lokalmässigt en identitet.”
+                    </p>
+                </div>
+            </div>
+
+            <div class="element flex-column">
+                <div class="flexContent text">
+                    <h4>Arkitektur med attityd</h4>
+                    <p>Vårt hus finns med i boken Sverige Brutal som ett exempel på arkitektur på 70-talet. Där finns bilder både exteriört och interiört. </p>
+                    <div class="textSep4"></div>
+                    <p>Citat från boken:</p>
+                    <div class="textSep2"></div>
+                    <p class="indent italics">”Särskilt iögonfallande är övervåningens utkragade fasader i glas och lackröd plåt som
+                        interagerar med omgivningen och skänker huset en air av festivitas”
+                    </p>
+                    <div class="textSep4"></div>
+                    <p>Boken finns att köpa på vår expedition.</p>
+                </div>
+                <img class="flexContent image slim" src="/images/OmHuset/02.jpg"
+                    alt="Bokomslaget till boken Sverige Brutal: Arkitektur med attityd" onclick="inspectImage()">
+                <div class="flexSpacer" style="height: 6vh;"></div>
+                <div class="flexContent flex-double">
+                    <img class="image" src="/images/OmHuset/03.jpg"
+                        alt="Folkets Hus Hallstavik från utsidan. Stort och rött, med stora fönster på övervåningen"
+                        onclick="inspectImage()" style="width: 330; height: 247;">
+                    <img class="image" src="/images/OmHuset/05.jpg" alt="Entrén till Bio Rosen" onclick="inspectImage()" style="width: 330; height: 247;">
+                </div>
+                <div class="flexContent flex-double">
+                    <img class="image" src="/images/OmHuset/04.jpg" alt="Den gröna övre foajéen med röda soffor" onclick="inspectImage()" style="width: 330; height: 247;">
+                    <img class="image" src="/images/OmHuset/06.jpg" alt="Trappan ned från övervåningen, mässingsfärgade metalldetaljer" onclick="inspectImage()" style="width: 330; height: 247;">
+                </div>
+            </div>
 
         </main>
         <%- include('./partials/footer.ejs') %>
