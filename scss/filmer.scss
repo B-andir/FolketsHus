@@ -337,8 +337,8 @@ main {
         width: 40rem;
         max-width: 60%;
         min-width: 30rem;
-        height: auto;
-        max-height: 90vh;
+        height: fit-content;
+        max-height: 100vh;
 
         background-color: $main;
 
@@ -744,17 +744,15 @@ html:not([data-is-mobile = "false"]) {
         }
 
         #inspectMovie {
-            top: 0;
-            left: 0;
+            min-height: 98dvh;
+            max-height: 98dvh;
+            width: 98vw;
+            min-width: 98vw;
 
-            min-height: 100vh;
-            max-height: 100vh;
-            width: 100vw;
-            min-width: 100vw;
+            top: 1dvh;
+            left: 1vw;
 
-            border-radius: 0px;
-
-            overflow-y: scroll;
+            overflow-y: hidden;
 
             display: block;
 
@@ -763,7 +761,7 @@ html:not([data-is-mobile = "false"]) {
                 position: relative;
                 top: 0;
 
-                width: 100vw;
+                width: 98vw;
                 height: auto;
                 display: flex;
                 justify-content: center;
@@ -780,8 +778,8 @@ html:not([data-is-mobile = "false"]) {
 
             #inspectBody {
                 .description {
-                    margin-top: 6vh;
-                    max-height: 15vh;
+                    margin-top: 2vh;
+                    height: fit-content;
                     overflow-y: scroll;
                     width: 80%;
                     padding: 0.5em 1em 0.5em 0;
@@ -805,7 +803,7 @@ html:not([data-is-mobile = "false"]) {
                 position: absolute;
                 height: 4rem;
                 padding: 1rem 2rem;
-                bottom: 5px;
+                top: calc(98dvh - 6rem);
                 flex-direction: row;
                 justify-content: space-around;
 
