@@ -94,7 +94,7 @@ function startClock() {
         });
     }
 
-    if (clock >= 6000) {
+    if (clock >= 5500) {
         window.requestAnimationFrame(advanceAllSlides);
 
         clock = 0;
