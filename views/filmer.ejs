@@ -17,6 +17,8 @@
     <div id="pageContainer">
         <main id="contentWrap">
 
+            <%- include('./partials/filmInspect.ejs') %>
+
             <!-- Information -->
             <div id="information">
                 <div class="informationElement">
@@ -75,17 +77,15 @@
                 <h1 id="moreTitle">Mer på Bio Rosen</h1>
                 <div class="moviesList" id="moreList">
                     <div class="moreItem">
-                        <h2 class="redirect moreOverhead" onclick="redirectToUrl('bio-rosen/live-pa-bio')">Live På Bio</h2>
+                        <a class="redirect moreOverhead" href='/bio-rosen/live-pa-bio' tabindex="0">Live På Bio</a>
                         <%- include('./partials/filmElement.ejs', { film: more.live, id: 2001, type: 'live' }) %>
                     </div>
                     <div class="moreItem">
-                        <h2 class="redirect moreOverhead" onclick="redirectToUrl('bio-rosen/bio-kontrast')">Bio Kontrast</h2>
+                        <a class="redirect moreOverhead" href='/bio-rosen/bio-kontrast' tabindex="0">Bio Kontrast</a>
                         <%- include('./partials/filmElement.ejs', { film: more.kontrast, id: 2002, type: 'kontrast' }) %>
                     </div>
                 </div>
             </div>
-
-            <%- include('./partials/filmInspect.ejs') %>
         </main>
 
         <%- include('./partials/footer.ejs') %>

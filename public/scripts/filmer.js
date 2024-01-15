@@ -1,3 +1,17 @@
+$(document).ready( () => {
+    var elements = document.querySelectorAll('.filmElement');
+    var inspect = document.querySelector('#inspectMovie');
+
+    elements.forEach(element => {
+        element.addEventListener("keypress", (event) => {
+            if (event.key == "Enter") {
+                element.click();
+                inspect.focus();
+            }
+        })
+    });
+});
+
 function setInspectorHeights() {
     var inspectPoster = $('#inspectBody .poster');
     var inspectGenre = $('#inspectBody .genre');
@@ -122,6 +136,7 @@ function closeInspect() {
     document.querySelector('#inspectMovie').removeEventListener('touchstart', () => {});
     document.querySelector('#inspectMovie').removeEventListener('touchend', () => {});
     document.querySelector('#inspectMovie').removeEventListener('touchmove', () => {});
+    document.getElementById('inspectMovie').removeEventListener('keypress', () => {});
 
     inspectOpen = false;
 
@@ -142,7 +157,6 @@ function movieElementClicked(targetID) {
 
     let trailerURL = document.querySelector(targetID + ' .youtubeTrailer').getAttribute('src');
 
-
     if (trailerURL.length > 6) {
         document.querySelector('#inspectTrailer .youtubeTrailer').setAttribute('src', trailerURL);
     }
@@ -158,6 +172,8 @@ function movieElementClicked(targetID) {
         ticketButton.classList.add('grey')
     }
 
+    let inspectMovie = document.getElementById('inspectMovie');
+
     document.querySelector('#inspectBody .title').innerHTML = document.querySelector(targetID + ' .title').innerHTML;
     document.querySelector('#inspectBody .genre').innerHTML = document.querySelector(targetID + ' .genre').innerHTML;
     document.querySelector('#inspectBody .runtime').innerHTML = document.querySelector(targetID + ' .runtime').innerHTML;
@@ -165,9 +181,17 @@ function movieElementClicked(targetID) {
     document.querySelector('#inspectBody .description').innerHTML = document.querySelector(targetID + ' .description').innerHTML;
 
     document.getElementById('inspectMovieBackground').classList.remove('hidden');
-    document.getElementById('inspectMovie').classList.remove('hidden');
+    inspectMovie.classList.remove('hidden');
     
     inspectTop = document.querySelector('#inspectMovie').getBoundingClientRect().top;
+    inspectMovie.focus();
+
+    inspectMovie.addEventListener('keyup', (event) => {
+        console.log(event);
+        if (event.key == "Escape") {
+            closeInspect();
+        }
+    })
 
     inspectOpen = true;
 
