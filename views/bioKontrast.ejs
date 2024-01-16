@@ -76,11 +76,11 @@
                 <h1 id="moreTitle">Mer på Bio Rosen</h1>
                 <div class="moviesList" id="moreList">
                     <div class="moreItem">
-                        <h2 class="redirect moreOverhead" onclick="redirectToUrl('bio-rosen/filmer')">Filmer</h2>
+                        <a class="redirect moreOverhead" href='/bio-rosen/filmer'>Filmer</a>
                         <%- include('./partials/filmElement.ejs', { film: more.film, id: 2001, type: 'film' }) %>
                     </div>
                     <div class="moreItem">
-                        <h2 class="redirect moreOverhead" onclick="redirectToUrl('bio-rosen/live-pa-bio')">Live På Bio</h2>
+                        <a class="redirect moreOverhead" href='/bio-rosen/live-pa-bio'>Live På Bio</a>
                         <%- include('./partials/filmElement.ejs', { film: more.live, id: 2002, type: 'live' }) %>
                     </div>
                 </div>
