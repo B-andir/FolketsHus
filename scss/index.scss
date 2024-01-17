@@ -754,14 +754,18 @@
     #Information2 {
 
         display: flex !important;
-        flex-direction: column;
+        flex-direction: column !important;
 
-        .filmElement {
-            img {
-                width: 20vw !important;
-                max-width: none !important;
-                min-width: 50px !important;
+        #Information2Main {
+            #IsEmpty {
+                padding: 10vh 0 !important;
+                width: 100% !important;
+                text-align: center;
             }
+        }
+        
+        .contentContainer {
+            width: 90vw;
         }
         
         #Sidebar {
@@ -826,9 +830,6 @@
             text-align: center;
             align-items: center;
 
-            margin-top: 1em;
-            border-top: 1px dashed rgba(black, 0.5);
-
             &#filmer {
                 border-top: none;
                 margin-top: 0;
@@ -842,11 +843,106 @@
                 border-top: none !important;
 
                 img {
-                    width: 35vw !important;
-                    max-width: none !important;
-                    min-width: 200px !important;
+                    // width: 35vw !important;
+                    // max-width: none !important;
+                    // min-width: 200px !important;
+                    width: fit-content !important;
+                    height: 100px !important;
                 }
             }
         }
+
+        #Sidebar {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed $black;
+        }
+    }
+
+    
+
+    #inspectMovie {
+        min-height: 98dvh !important;
+        max-height: 98dvh !important;
+        width: 98vw !important;
+        min-width: 98vw !important;
+
+        top: 1dvh !important;
+        left: 1vw !important;
+
+        overflow-y: hidden !important;
+
+        display: block !important;
+
+        #inspectTrailer {
+            aspect-ratio: auto !important;
+            position: relative !important;
+            top: 0 !important;
+
+            width: 98vw !important;
+            height: auto !important;
+            display: flex !important;
+            justify-content: center !important;
+            background: radial-gradient(circle, rgba(38,62,99,1) 0%, rgba(0,0,0,1) 62%) !important;
+
+            iframe {
+                border-radius: 0 !important;
+
+                aspect-ratio: 16/9 !important;
+                height: 100% !important;
+                // width: auto;
+            }
+        }
+
+        #inspectBody {
+            .description {
+                margin-top: 2vh !important;
+                height: fit-content !important;
+                overflow-y: scroll !important;
+                width: 80% !important;
+                padding: 0.5em 1em 0.5em 0 !important;
+                margin-left: 3em !important;
+                border-top: 1px solid $main-dark !important;
+                border-bottom: 1px solid $main-dark !important;
+            }
+
+            .poster {
+                max-width: 172px !important;
+
+                top: 22% !important;
+            }
+
+            .runDate {
+                margin-right: 2vw !important;
+            }
+        }
+
+        #inspectFooter {
+            position: absolute !important;
+            height: 4rem !important;
+            padding: 1rem 2rem !important;
+            top: calc(98dvh - 6rem) !important;
+            flex-direction: row !important;
+            justify-content: space-around !important;
+
+            .ticket {
+                min-width: 15em !important;
+            }
+
+            #inspectCloseButton {
+                height: 4rem !important;
+                aspect-ratio: 1 / 1 !important;
+
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;                    
+                
+                .crossIcon {
+                    font-size: 3em !important;
+                    color: rgba($black, 0.8) !important;
+                }
+            }
+        }
+        
     }
 }
