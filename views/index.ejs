@@ -4,6 +4,7 @@
     <%- include('./partials/head.ejs') %>
     <link rel='stylesheet' href='/style/index.css'>
     <script src="/scripts/rellax.min.js"></script>
+    <script src="/scripts/filmer.js"></script>
 </head>
 
 <body>
@@ -30,46 +31,86 @@
             </div>
             
             <div id="lowerContent">
-                <div class="element dark">
+
+                <!-- Triple Element : RK, Bio, Unes -->
+                <div class="element transparrent" id="element1">
                     <div class="flex-tripple" id="Information1">
                         <div class="content" id="RoslagensKulturhusInfo">
-                            <div class="content-background" style="background-image: url(/images/Index/RoslagensKulturhus.jpg);"></div>
-                            <h4 class="topLeftAbsolute" style="font-style: italic;">MÖTESPLATSEN</h4>
-                            <div class=header>
-                                <h2>Roslagens Kulturhus</h2>
-                                <h3>Vi har lokaler för alla tänkbara möten</h3>
-                            </div>
-                            <div class="content-body">
-                                <p>Hyr lokal för det lilla föreningsmötet för åtta till tio personer eller till den stora föreläsningen för 250
-                                    personer.<br>Passar även för evenemang, middagsbjudningar och kalas för både stora och små.</p>
-                                <p>För att boka - ring 0175-221 40</p>
-                                <a href="/boka-lokal">Se våra olika lokaler</a>
+                            <div class="content-background" style="background-image: url(/images/Index/RoslagensKulturhus.jpg);" roole="img" alt="Konferensrum med stora fönster"></div>
+                            <div class="contentContainer">
+                                <h4 class="topLeftAbsolute" style="font-style: italic;">MÖTESPLATSEN</h4>
+                                <div class=header>
+                                    <h2>Roslagens Kulturhus</h2>
+                                    <h3>Vi har lokaler för alla tänkbara möten</h3>
+                                </div>
+                                <div class="content-body">
+                                    <p>Hyr lokal för det lilla föreningsmötet för åtta till tio personer eller till den stora föreläsningen för 250
+                                        personer.<br>Passar även för evenemang, middagsbjudningar och kalas för både stora och små.</p>
+                                    <p>För att boka - ring 0175-221 40</p>
+                                    <a href="/boka-lokal">Se våra olika lokaler</a>
+                                </div>
                             </div>
                         </div>
                         <div class="content" id="BioRosenInfo">
-                            <div class="content-background" style="background-image: url(/images/Index/BioRosen.jpg);"></div>
-                            <div class="content-body">
-                                <div class="header">
-                                    <h2>Bio Rosen</h2>
+                            <div class="content-background" style="background-image: url(/images/Index/BioRosen.jpg);" role="img" alt="Entrén av Bio Rosen"></div>
+                            <div class="contentContainer">
+                                <div class="content-body">
+                                    <div class="header">
+                                        <h2>Bio Rosen</h2>
+                                    </div>
+                                    <p>Se på filmer eller upplev livesänd opera från Metropolitan.<br>Eller varför inte gå med i filmklubben och upplev kvalitetsfilm till reducerat pris</p>
+                                    <p>Köp biljetter på plats eller digitalt</p>
+                                    <a href="/bio-rosen/filmer">Se vilka filmer som visas</a>
                                 </div>
-                                <p>Se på filmer eller upplev livesänd opera från Metropolitan.<br>Eller varför inte gå med i filmklubben och upplev kvalitetsfilm till reducerat pris</p>
-                                <p>Köp biljetter på plats eller digitalt</p>
-                                <a href="/bio-rosen/filmer">Se vilka filmer som visas</a>
                             </div>
                         </div>
                         <div class="content" id="UnesKökOchBarInfo">
-                            <div class="content-background" style="background-image: url(/images/Index/UnesRestaurangOchBar.jpg);"></div>
-                            <div class="content-body">
-                                <div class="header">
-                                    <h2>Unes Kök & Bar</h2>
-                                    <h3>Restaurang & Catering</h3>
+                            <div class="content-background" style="background-image: url(/images/Index/UnesRestaurangOchBar.jpg);" role="img" alt="Bar bakgrund, många flaskor"></div>
+                            <div class="contentContainer">
+                                <div class="content-body">
+                                    <div class="header">
+                                        <h2>Unes Kök & Bar</h2>
+                                        <h3>Restaurang & Catering</h3>
+                                    </div>
+                                    <p>Unes Kök & Bar hälsar er välkomna!</p>
+                                    <p>Restaurangen är öppen för luncher vardagar 9:30 till 14:00</p>
+                                    <a href="/unes-kok-bar">Se aktuell veckomeny</a>
                                 </div>
-                                <p>Unes Kök & Bar hälsar er välkomna!</p>
-                                <p>Restaurangen är öppen för luncher vardagar 9:30 till 14:00</p>
-                                <a href="/unes-kok-bar">Se aktuell veckomeny</a>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Bio Rosen -->
+                <div class="element" id="element2">
+                    <h2 id="Information2Header">Evenemang och Senaste Nytt</h2>
+                    <div id="Information2">
+                        <div class="content" id="Information2Main">
+                            <p id="IsEmpty">Inga evenemang just nu ...</p>
+                        </div>
+                        <div class="content" id="Sidebar">
+                            <h2 id="SidebarHeader">Uppkommande på<br>Bio Rosen</h2>
+                            <div class="header">
+                                <a href="/bio-rosen/filmer">Uppkommande Filmer</a>
+                            </div>
+                            <div class="contentContainer">
+                                <%- include('./partials/indexFilmElement.ejs', { film: films, id: 'f0', type: 'film' }) %>
+                            </div>
+                            <div class="contentContainer" id="KontrastContainer">
+                                <%- include('./partials/indexFilmElement.ejs', { film: kontrast, id: 'k0', type: 'kontrast' }) %>
+                            </div>
+                            <div class="header">
+                                <a href="/bio-rosen/live-pa-bio">Uppkommande Live på Bio</a>
+                                <p>Direktsänd Opera och Balett</p>
+                            </div>
+                            <div class="contentContainer">
+                                <%- include('./partials/indexFilmElement.ejs', { film: live, id:'l0', type: 'live', onclick: "redirect" }) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="inspectMovieContainer">
+                    <%- include('./partials/filmInspect.ejs') %>
                 </div>
             </div>
         </main>

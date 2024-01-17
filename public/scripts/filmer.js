@@ -10,6 +10,26 @@ $(document).ready( () => {
             }
         })
     });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const openElement = urlParams.get('openElement') || 'false'
+
+    if (openElement == 'true') {
+        let target = 'filmElement' + urlParams.get('openID');
+        movieElementClicked(target);
+    }
+    
+    window.setTimeout(() => {
+        $('#information').css({
+            'box-shadow': '-2px 2px 4px #bd1818'
+        });
+
+        window.setTimeout(() => {
+            $('#information').css({
+                'box-shadow': '0px 0px 4px #582B39'
+            });
+        }, 1200);
+    }, 500);
 });
 
 function setInspectorHeights() {
@@ -125,7 +145,6 @@ function mobileInspectDrag(moveY) {
 }
 
 function closeInspect() {
-    enableScroll();
     document.getElementById('inspectMovieBackground').classList.add('hidden');
     document.getElementById('inspectMovie').classList.add('hidden');
     
@@ -137,6 +156,10 @@ function closeInspect() {
     document.querySelector('#inspectMovie').removeEventListener('touchend', () => {});
     document.querySelector('#inspectMovie').removeEventListener('touchmove', () => {});
     document.getElementById('inspectMovie').removeEventListener('keypress', () => {});
+
+    if (document.querySelector('nav').dataset.isMobile == 'true') {
+        enableScroll();
+    }
 
     inspectOpen = false;
 

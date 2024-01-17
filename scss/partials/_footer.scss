@@ -60,6 +60,9 @@ footer {
     
         #footerSection2 {  // Central Map section
             align-self: center;
+            max-width: 500px;
+            max-height: 400px;
+            min-height: 300px;
             height: 32vh;
             width: auto;
             border: 4px ridge $black-contrast;

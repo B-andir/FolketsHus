@@ -24,9 +24,10 @@ main {
 
         overflow-y: scroll;
 
-        box-shadow: 0 0 4px $soft-dark;
+        // box-shadow: -2px 2px 4px rgba($red-light, 0.8);
+        box-shadow: 0px 0px 4px $soft-dark;
 
-        transition: top 0.2s ease, padding 0.2s ease;
+        transition: top 0.2s ease, padding 0.2s ease, box-shadow 1s ease-out;
 
         &::-webkit-scrollbar {
             display: none;
@@ -204,7 +205,8 @@ main {
 
             .filmElement {
                 width: 25%;
-                height: 12em;
+                height: 20%;
+                min-height: 200px;
                 padding: 2vh 2vw;
                 margin-top: 1vh;
 
@@ -221,6 +223,7 @@ main {
                     aspect-ratio: 2 / 3;
 
                     height: 100%;
+                    max-height: 200px;
 
                     object-fit: cover;
                     
@@ -232,6 +235,7 @@ main {
                     justify-content: space-between;
 
                     height: 100%;
+                    min-height: 200px;
                     padding-left: 1em;
 
                     font-family: sans-serif;
@@ -313,6 +317,7 @@ main {
         }
 
         #moreTitle {
+            width: max-content;
             margin-top: Min(8vh, 60px);
             font-size: 2.0em;
         }
@@ -328,6 +333,9 @@ main {
 
         background-color: rgba($black, 0.2);
         backdrop-filter: blur(2px);
+
+        display: flex;
+        justify-content: center;
     }
 
     #inspectMovie {
@@ -507,7 +515,7 @@ main {
     }
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1400px) {
     html:has([data-is-mobile = 'false']) {
         main {
             #moviesContainer {
@@ -520,7 +528,7 @@ main {
                     // column-gap: 19.28%;
     
                     .filmElement {
-                        width: 35%;
+                        width: 31vw;
                     }
                 }
             }
@@ -531,17 +539,37 @@ main {
 
 }
 
+@media only screen and (max-width: 1000px) {
+    html:has([data-is-mobile = 'false']) {
+        #moviesContainer {
+            position: relative;
+            padding-top: 15vh;
+            margin-top: 15vh;
+        }
+
+        #information {
+            width: 100% !important;
+    
+            transition: top 1s ease !important;
+        }
+        
+    
+        &:not([data-scroll='0']) {
+            main {
+        
+                #information {
+                    top: -75vh !important;
+                }
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: 1000px) and (min-width: 820px) {
 
     html:has([data-is-mobile = 'false']) {
         main {
-            #information {
-                width: 100% !important;
-        
-                transition: top 0.6s ease-out !important;
-            }
             #moviesContainer {
-                padding-top: 0;
                 position: relative;
                 padding-top: 12vh;
                 margin-top: 12vh;
@@ -585,16 +613,6 @@ main {
                             }
                         }
                     }
-                }
-            }
-        }
-        
-    
-        &:not([data-scroll='0']) {
-            main {
-        
-                #information {
-                    top: calc(-10vh - 1rem) !important;
                 }
             }
         }
@@ -700,8 +718,14 @@ html:not([data-is-mobile = "false"]) {
                 .filmElement {
                     width: 90% !important;
                     height: 20vh !important;
-                    min-height: 8em !important;
+                    min-height: 10em !important;
                     padding: 2vh 3% 1vh 7% !important;
+
+                    img {
+                        height: 18vh;
+                        min-height: calc(10em - 2vh);
+                        padding: 1vh 0;
+                    }
 
                     .mainBody {
                         width: 100% !important;
@@ -732,7 +756,7 @@ html:not([data-is-mobile = "false"]) {
 
                     .moreItem {
                         width: 100% !important;
-                        height: 25vh !important;
+                        height: fit-content;
                         min-height: 10em !important;
 
                         .moreOverhead {

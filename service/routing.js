@@ -1,8 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
+const { getCache } = require('./films-cache.js')
+
 router.get('/', (req, res) => {
-    res.render('index', { title: 'Hem' });
+    let tempCache = getCache();
+    
+    res.render('index', { 
+        title: 'Hem', 
+        films: tempCache['film'][0],
+        kontrast: tempCache['kontrast'][0],
+        live: tempCache['live'][0],
+    });
 });
 
 router.get('/unes-kok-bar', (req, res) => {
