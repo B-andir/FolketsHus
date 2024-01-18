@@ -841,6 +841,7 @@
 
             .filmElement {
                 border-top: none !important;
+                padding-bottom: 0 !important;
 
                 img {
                     // width: 35vw !important;
@@ -848,6 +849,14 @@
                     // min-width: 200px !important;
                     width: fit-content !important;
                     height: 100px !important;
+                }
+
+                .mainBody {
+                    justify-content: space-between !important;
+
+                    .runDate {
+                        margin-bottom: 1em !important;
+                    }
                 }
             }
         }

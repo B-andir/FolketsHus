@@ -102,18 +102,18 @@ let distanceToStart = 0;
 function mobileInspectDragRelease() {
     if (distanceToStart > 50) {
         $('#inspectMovie').css({
-            'transition': 'top 0ms',
-            'top': inspectTop,
+            'transition': 'margin-top 0ms',
+            'margin-top': inspectTop,
         });
 
         closeInspect();
     } else {
         $('#inspectMovie').css({
-            'transition': 'top 100ms ease'
+            'transition': 'margin-top 80ms ease-out'
         })
 
         $('#inspectMovie').css({
-            'top': inspectTop,
+            'margin-top': inspectTop,
         })
     }
     
@@ -131,14 +131,14 @@ function mobileInspectDrag(moveY) {
     let multiplier = calculation(distanceToStart);
     multiplier = multiplier > 1 ? 1 : multiplier;
 
-    console.log(multiplier);
-
     const diffY = lastTouchY - moveY;
 
     totalTopResult -= diffY * multiplier;
 
+    // document.querySelector('#inspectMovie').style.marginTop = inspectTop + totalTopResult + 'px'
+
     $('#inspectMovie').css({
-        'top': inspectTop + totalTopResult + 'px'
+        'margin-top': inspectTop + totalTopResult + 'px'
     })
 
     lastTouchY = moveY;
@@ -206,7 +206,7 @@ function movieElementClicked(targetID) {
     document.getElementById('inspectMovieBackground').classList.remove('hidden');
     inspectMovie.classList.remove('hidden');
     
-    inspectTop = document.querySelector('#inspectMovie').getBoundingClientRect().top;
+    inspectTop = document.querySelector('#inspectMovie').style.marginTop;
     inspectMovie.focus();
 
     inspectMovie.addEventListener('keyup', (event) => {

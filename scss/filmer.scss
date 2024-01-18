@@ -717,7 +717,7 @@ html:not([data-is-mobile = "false"]) {
 
                 .filmElement {
                     width: 90% !important;
-                    height: 20vh !important;
+                    height: fit-content !important;
                     min-height: 10em !important;
                     padding: 2vh 3% 1vh 7% !important;
 
@@ -729,9 +729,11 @@ html:not([data-is-mobile = "false"]) {
 
                     .mainBody {
                         width: 100% !important;
-                        height: 100% !important;
-                        justify-content: space-around !important;
-                        gap: 0.4em !important;
+                        height: 10em !important;
+                        min-height: fit-content;
+                        justify-content: space-between !important;
+                        gap: 0.2em !important;
+                        padding-top: 0.5rem;
 
                         h2 {
                             margin: 0 !important;

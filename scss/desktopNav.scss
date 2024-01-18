@@ -224,6 +224,8 @@ html:not([data-scroll='0']) {
     }
 
     nav {
+        height: inherit;
+
         #logoSection {
             img {
                 max-width: 105px;
@@ -249,11 +251,19 @@ html:not([data-scroll='0']) {
             .firstLayer {
                 font-size: 16px;
             }
+
+            .navElement {
+                max-height: 6vh !important;
+
+                .firstLayer {
+                    width: max-content !important;
+                }
+            }
         }
     }
 }
 
-@media screen and (max-device-width: 1060px) {
+@media screen and (max-width: 1060px) {
     nav {
         #logoSection {
             transform: translateX(-4vw);
@@ -280,6 +290,18 @@ html:not([data-scroll='0']) {
                     font-size: 12px;
                 }
             }
+        }
+    }
+}
+
+@media screen and (max-width: 930px) {
+    #navSection {
+        transition: column-gap 0.2s ease;
+    }
+
+    html:not([data-scroll='0']) {
+        #navSection {
+            column-gap: 0;
         }
     }
 }
