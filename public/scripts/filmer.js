@@ -224,20 +224,26 @@ function movieElementClicked(targetID) {
         disableScroll();
 
         document.querySelector('#inspectMovie').addEventListener('touchstart', (event) => {
-            totalTopResult = inspectTop;
-            touchStartY = event.changedTouches[0].screenY;
-            lastTouchY = touchStartY;
+            if (event.touches.length == 1) {
+                totalTopResult = inspectTop;
+                touchStartY = event.changedTouches[0].screenY;
+                lastTouchY = touchStartY;
+            }
 
             document.querySelector('#inspectMovie').addEventListener('touchmove', (event) => {
-                mobileInspectDrag(event.changedTouches[0].screenY);
+                if (event.touches.length == 1) {
+                    mobileInspectDrag(event.changedTouches[0].screenY);
+                }
             });
         });
 
         document.querySelector('#inspectMovie').addEventListener('touchend', (event) => {
-            touchEndY = event.changedTouches[0].screenY;
-            mobileInspectDragRelease();
+            if (event.touches.length == 1) {
+                touchEndY = event.changedTouches[0].screenY;
+                mobileInspectDragRelease();
 
-            touchStartY = 0;
+                touchStartY = 0;
+            }
         });
     } else {
         scrollStart = window.scrollY;
