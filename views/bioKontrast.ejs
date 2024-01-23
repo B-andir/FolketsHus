@@ -68,8 +68,15 @@
                 <h1>Uppkommande Kontrastfilmer</h1>
                 <p id="kontrastNotice"><span class="bold">OBS!</span> Biljettförsäljning sker endast på plats i Kassan vid föreställningen!</p>
                 <div class="moviesList" id="moviesList" data-list-type="normal">
-                    <% for (let index = 0; index < Object.keys(films).length; index++) { const element = films[index]; %>
-                        <%- include('./partials/filmElement.ejs', { film: element, id: index, type: 'kontrast' }) %>
+                    <% if (Object.keys(films).length > 0) { %>
+                        <% for (let index = 0; index < Object.keys(films).length; index++) { const element = films[index]; %>
+                            <%- include('./partials/filmElement.ejs', { film: element, id: index, type: 'kontrast' }) %>
+                        <% } %>
+                    <% } else { %>
+                        <div class="emptyFilmsContainer">
+                            <h3>Inga uppkommande bio kontrast föreställningar för närvarande</h3>
+                            <p>Men oroa dig inte! Det kommer säkert dyka upp någonting här snart.</p>
+                        </div>
                     <% } %>
                 </div>
                 

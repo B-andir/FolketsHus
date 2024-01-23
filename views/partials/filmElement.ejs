@@ -32,6 +32,7 @@
     }
 %>
 
+<% if (film != null) { %>
 <div class="filmElement" id="filmElement<%- id %>" onclick="movieElementClicked('filmElement<%- id %>')" tabindex="0" onselect="movieElementClicked('filmElement<%- id %>')">
     <img class="poster" src="<%= film.posterURL %>" alt="Affisch för filmen">
     <div class="mainBody">
@@ -52,3 +53,20 @@
     <div class="hidden ticketURL" href="<%- film.ticketURL %>"></div>
     <div class="hidden type"><%- type %></div>
 </div>
+<% } else { %>
+    <div class="filmElement empty">
+        <% if (type == 'film') { %>
+            <div class="mainBody">
+                <h3>Ingen Film Uppkommande</h3>
+            </div>
+        <% } else if (type == 'live') { %>
+            <div class="mainBody">
+                <h3>Ingen Livesändning Uppkommande</h3>
+            </div>
+        <% } else if (type == 'kontrast') { %>
+            <div class="mainBody">
+                <h3>Ingen Bio Kontrast Uppkommande</h3>
+            </div>
+        <% } %>
+    </div>
+<% } %>
