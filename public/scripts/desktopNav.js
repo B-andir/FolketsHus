@@ -44,13 +44,15 @@ async function toggleDropdownElement(elementID) {
     showElements.set(elementID + 'processUnderway', false);
 }
 
-function showDropdownElement(elementID) {
+function showDropdownElement(elementID, buttonID) {
     if (showElements.get(elementID) == true) return;
 
-    event.target.style.borderLeft = '1px solid #BB8376';
-    event.target.style.borderRight = '1px solid #BB8376';
-    event.target.style.minWidth = '128px';
-    event.target.style.width = 'calc(11vw - 2px)'
+    var target = document.querySelector('#' + buttonID);
+
+    target.style.borderLeft = '1px solid #BB8376';
+    target.style.borderRight = '1px solid #BB8376';
+    target.style.minWidth = '128px';
+    target.style.width = 'calc(11vw - 2px)'
 
     if (showElements.get(elementID + 'processUnderway')) showElements.set(elementID + 'cancelProcess', true);
     
@@ -59,14 +61,16 @@ function showDropdownElement(elementID) {
     toggleDropdownElement(elementID);
 }
 
-function hideDropdownElement(elementID) {
+function hideDropdownElement(elementID, buttonID) {
     if (showElements.get(elementID) == false) return;
 
+    var target = document.querySelector('#' + buttonID);
+
     if (document.getElementById(elementID).classList.contains('hidden')) {
-        event.target.style.borderLeft = '';
-        event.target.style.borderRight = '';
-        event.target.style.minWidth = '130px';
-        event.target.style.width = '11vw'
+        target.style.borderLeft = '';
+        target.style.borderRight = '';
+        target.style.minWidth = '130px';
+        target.style.width = '11vw'
     }
 
     if (showElements.get(elementID + 'processUnderway')) showElements.set(elementID + 'cancelProcess', true);
