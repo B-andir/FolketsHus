@@ -321,6 +321,19 @@ main {
             margin-top: Min(8vh, 60px);
             font-size: 2.0em;
         }
+
+        .emptyFilmsContainer {
+            padding: 2vh 4vw;
+            font-family: 'Roboto', sans-serif;
+
+            h3 {
+                font-size: 1.9em;
+            }
+
+            p {
+                font-size: 1.4em;
+            }
+        }
     }
 
     #inspectMovieBackground {
