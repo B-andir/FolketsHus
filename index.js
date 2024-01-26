@@ -2,8 +2,10 @@ const express = require('express');
 const session = require('express-session');
 const device = require('express-device');
 const morgan = require('morgan');
+const bodyParser = require('body-parser')
 const database = require("./database.js");
 const routing = require('./service/routing.js');
+const apiRouting = require('./service/api/apiRouting.js');
 const schedule = require('node-schedule');
 require('dotenv').config();
 
@@ -18,6 +20,13 @@ const app = express();
 app.use(express.static('public'));
 
 app.use(device.capture());
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+
 app.use(session({
     name: 'FHHSession',
     secret: process.env.SESSION_SECRET,
@@ -39,6 +48,8 @@ funcCall();
 const dbClearOld = schedule.scheduleJob('* 0,24 * * *', funcCall)
 
 // ------ Routing ------
+
+app.use('/api', apiRouting);
 
 app.use('/', routing);
 
