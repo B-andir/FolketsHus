@@ -7,6 +7,7 @@ const database = require("./database.js");
 const routing = require('./service/routing.js');
 const apiRouting = require('./service/api/apiRouting.js');
 const schedule = require('node-schedule');
+
 require('dotenv').config();
 
 // ------ INIT ------
