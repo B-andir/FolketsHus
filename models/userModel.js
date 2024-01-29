@@ -23,9 +23,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    refreshToken: String,
-    accessToken: String,
-    accessTokenCreated: Date,
+    refreshKey: String,
+    accessKey: String,
+    accessKeyCreated: Date,
 });
 
 const UserModel = mongoose.model('User', userSchema, 'Users');
