@@ -12,7 +12,6 @@ require('dotenv').config();
 const saltRounds = 10;
 
 async function generateTokens(user, callback) {
-    console.log("Generating tokens...");
 
     const accessKey = uuidv4();
     const refreshKey = uuidv4();
@@ -85,10 +84,9 @@ async function authorize(userName, password, res) {
                 if (result == true) {
                     // If passwords match, generate Refresh and Access token, then send them to client with status 200
                     generateTokens(user, (accessToken, refreshToken) => {
-                        console.log("Tokens generated");
                         res
-                        .status(200)
-                        .json({accessToken: accessToken, refreshToken: refreshToken});
+                            .status(200)
+                            .json({accessToken: accessToken, refreshToken: refreshToken});
                     });
 
 
