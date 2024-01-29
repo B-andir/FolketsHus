@@ -16,6 +16,12 @@ async function generateTokens(user, callback) {
     const accessKey = uuidv4();
     const refreshKey = uuidv4();
 
+    await Users.updateOne(user, {
+        accessKey: accessKey,
+        refreshKey: refreshKey,
+        accessKeyCreated: Date.now(),
+    })
+
     const refreshToken = jwt.sign({
         sub: user.pubId,
         key: refreshKey
@@ -29,12 +35,6 @@ async function generateTokens(user, callback) {
     }, process.env.JWT_SECRET, {
         expiresIn: "30s",
     });
-
-    await Users.updateOne(user, {
-        refreshToken: refreshToken,
-        accessToken: accessToken,
-        accessTokenCreated: Date.now(),
-    })
 
     callback(accessToken, refreshToken);
 }
