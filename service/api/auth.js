@@ -96,8 +96,8 @@ async function refreshAccessToken(refreshToken, res) {
 
     } else {
         res
-            .status(400)
-            .send('No Refresh Token');
+            .status(401)
+            .send('Invalid Refresh Token');
 
         return;
     }

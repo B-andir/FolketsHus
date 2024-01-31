@@ -5,6 +5,7 @@ const authenticateMiddleware = require('../../middleware/authenticate');
 const auth = require('./auth');
 const fetchData = require('./fetchData');
 const sendData = require('./sendData');
+const fetchAPISecrets = require('./fetchAPISecrets');
 
 function authenticate(req, res, next) {
     authenticateMiddleware(req, res, next);
@@ -29,5 +30,9 @@ router.post('/fetchData', authenticate, async (req, res) => {
 router.post('/sendData', authenticate, async (req, res) => {
     
 });
+
+router.post('/fetchAPISecrets', authenticate, async(req, res) => {
+    fetchAPISecrets(req.body.data.targetData, res);
+})
 
 module.exports = router;
