@@ -33,6 +33,6 @@ router.post('/sendData', authenticate, async (req, res) => {
 
 router.post('/fetchAPISecrets', authenticate, async(req, res) => {
     fetchAPISecrets(req.body.data.targetData, res);
-})
+});
 
 module.exports = router;
