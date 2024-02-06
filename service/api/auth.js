@@ -6,6 +6,7 @@ const { scrypt, randomFill, createCipheriv, createDecipheriv} = require('node:cr
 
 const Users = require('../../models/userModel.js');
 const { AsyncLocalStorage } = require('node:async_hooks');
+const { debug } = require('node:console');
 
 require('dotenv').config();
 
@@ -50,6 +51,58 @@ function str2ab(str) {
     return bufView;
 }
 
+async function refreshAccessToken(refreshToken, res) {
+    if (refreshToken) {
+
+        jwt.verify(refreshToken, process.env.JWT_SECRET, async (err, decoded) => {
+            if (err) {
+                res
+                    .status(401)
+                    .send('Invalid Refresh Token');
+
+                return;
+            }
+
+            const user = await Users.findOne({ pubId: decoded.sub });
+
+            if (user) {
+
+                if (user.refreshKey == decoded.key) {
+
+                    await generateTokens(user, (accessKey, refreshKey) => {
+                        res
+                            .status(200)
+                            .json({accessToken: accessKey, refreshToken: refreshKey});
+
+                        return;
+                    });
+
+                } else {
+                    res
+                        .status(401)
+                        .send('Invalid Refresh Token');
+
+                    return;
+                }
+
+            } else {
+                res
+                    .status(400)
+                    .send("Couldn't find user");
+
+                return;
+            }
+        })
+
+    } else {
+        res
+            .status(401)
+            .send('Invalid Refresh Token');
+
+        return;
+    }
+}
+
 async function authorize(userName, password, res) {
     // Get user from database collection Users
     const user = await Users.findOne({ name: userName });
@@ -83,10 +136,10 @@ async function authorize(userName, password, res) {
 
                 if (result == true) {
                     // If passwords match, generate Refresh and Access token, then send them to client with status 200
-                    generateTokens(user, (accessToken, refreshToken) => {
+                    generateTokens(user, (accessKey, refreshKey) => {
                         res
                             .status(200)
-                            .json({accessToken: accessToken, refreshToken: refreshToken});
+                            .json({accessToken: accessKey, refreshToken: refreshKey});
                     });
 
 
@@ -104,4 +157,4 @@ async function authorize(userName, password, res) {
     }
 }
 
-module.exports = { authorize };
+module.exports = { authorize, refreshAccessToken };
