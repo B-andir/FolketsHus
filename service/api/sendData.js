@@ -6,9 +6,6 @@ const filmsCache = require('../films-cache');
 
 module.exports = async (data, res) => {
 
-    console.log("Send Data Request Recieved\n\ndata:");
-    console.log(data);
-
     let type = data['dataType'];
 
     // If sent data is meant for Bio Rosen
