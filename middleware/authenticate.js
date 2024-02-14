@@ -12,8 +12,8 @@ module.exports = async (req, res, next) => {
         await jwt.verify(accessToken, process.env.JWT_SECRET, async (error, decoded) => {
             if (error) {
                 res
-                    .status(400)
-                    .send("Invalid Access Token");
+                    .status(401)
+                    .send("Invalid or no Access Token");
 
                 return;
             }
@@ -34,31 +34,31 @@ module.exports = async (req, res, next) => {
     
                         } else {
                             res
-                                .status(400)
-                                .send("Invalid Access Token");
+                                .status(401)
+                                .send("Invalid or no Access Token");
 
                             return;
                         }
                     } else {
                         console.warn("WARNING: Expired access key! This should not be called, as expired tokens should be caught before this check. Potential JWT manipulation");
                         res
-                            .status(400)
-                            .send("Invalid Access Token");
+                            .status(401)
+                            .send("Invalid or no Access Token");
 
                         return;
                     }
     
                 } else {
                     res
-                        .status(400)
-                        .send("Invalid Access Token");
+                        .status(401)
+                        .send("Invalid or no Access Token");
 
                     return;
                 }
             } else {
                 res
-                    .status(400)
-                    .send("Invalid Access Token")
+                    .status(401)
+                    .send("Invalid or no Access Token");
 
                 return;
             }
@@ -69,7 +69,7 @@ module.exports = async (req, res, next) => {
     } else {
         res
             .status(401)
-            .send("No Access Token");
+            .send("Invalid or no Access Token");
 
         return;
     }

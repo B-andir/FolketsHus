@@ -180,7 +180,7 @@ function movieElementClicked(targetID) {
 
     let trailerURL = document.querySelector(targetID + ' .youtubeTrailer').getAttribute('src');
 
-    if (trailerURL.length > 6) {
+    if (trailerURL.length > 12) {
         document.querySelector('#inspectTrailer .youtubeTrailer').setAttribute('src', trailerURL);
     }
 

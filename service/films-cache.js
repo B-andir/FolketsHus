@@ -125,5 +125,19 @@ module.exports = {
         } else {
             return getAllCache();
         }
+    }, updateCache: async (/*String*/ MODE) => {
+        MODE = MODE || 'none';
+        mode = MODE.toLowerCase();
+
+        if (mode == 'film')
+            return fetchFilm();
+        else if (mode == 'live')
+            return fetchLive();
+        else if (mode == 'kontrast')
+            return fetchKontrast();
+        else
+            return updateAll();
+
     }, updateAll, updateAllIfNeeded, cache,
+    
 }
