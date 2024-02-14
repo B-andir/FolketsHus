@@ -28,7 +28,7 @@ router.post('/fetchData', authenticate, async (req, res) => {
 });
 
 router.post('/sendData', authenticate, async (req, res) => {
-    
+    await sendData(req.body.data, res);
 });
 
 router.post('/fetchAPISecrets', authenticate, async(req, res) => {
