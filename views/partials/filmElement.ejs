@@ -41,7 +41,7 @@
         <p class="runtime"><%= getTimeString(film.runtime) %></p>
         <p class="runDate"><%- getDateString(film.date) %></p>
         <p class="ageRating">
-            <% if (film.ageRating != '' || film.ageRating != ' ' || film.ageRating != 'NaN') { %>
+            <% if (film.ageRating != '' && film.ageRating != ' ' && film.ageRating != 'NaN') { %>
                 Åldersgräns: <%= film.ageRating %>
             <% } else { %>
                 Ingen Åldersgräns
