@@ -93,13 +93,19 @@ async function updateAllIfNeeded() {
     updateKontrastIfNeeded();
 }
 
-async function updateAll() {
+function updateAll() {
     fetchFilm();
     fetchLive();
     fetchKontrast();
 }
 
-updateAll();
+async function updateAllAsync() {
+    fetchFilm();
+    fetchLive();
+    fetchKontrast();
+}
+
+updateAllAsync();
 
 function getAllCache() {
     updateAllIfNeeded();
@@ -138,6 +144,6 @@ module.exports = {
         else
             return updateAll();
 
-    }, updateAll, updateAllIfNeeded, cache,
+    }, updateAll, updateAllAsync, updateAllIfNeeded, cache,
     
 }

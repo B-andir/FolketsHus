@@ -7,6 +7,7 @@ const database = require("./database.js");
 const routing = require('./service/routing.js');
 const apiRouting = require('./service/api/apiRouting.js');
 const schedule = require('node-schedule');
+const cloudinary = require('cloudinary');
 
 require('dotenv').config();
 
@@ -38,6 +39,12 @@ app.use(session({
         maxAge: 10800000,  // 3 hours in milliseconds
     },
 }));
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 device.enableDeviceHelpers(app);
 

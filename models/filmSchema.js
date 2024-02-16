@@ -43,6 +43,9 @@ const FilmSchema = new mongoose.Schema({
     premiere:  {
         type: Boolean,
         default: false,
+    },
+    showType: {
+        type: String
     }
 });
 
