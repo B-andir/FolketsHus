@@ -75,6 +75,163 @@ module.exports = async (data, res) => {
             return;
         }
 
+    } else if (type == "BioRosenUpdate") {
+        // Update an existing database entry
+
+        let showType = data['showType']
+
+        if (showType == 'film') {
+
+            const result = await Films.findById(data['_id']);
+
+            if (result) {
+                let newPosterCloudinaryId = data['posterCloudinaryId'];
+
+                if (newPosterCloudinaryId == "NaN") 
+                    newPosterCloudinaryId = result.posterCloudinaryID;
+
+                await result.updateOne({
+                    name: data["title"],
+                    runtime: data["runTime"],
+                    description: data["description"],
+                    date: data["runDate"],
+                    posterURL: data["posterURL"],
+                    posterCloudinaryID: newPosterCloudinaryId,
+                    trailerURL: data["trailerURL"],
+                    ticketURL: data["ticketURL"],
+                    ageRating: data["ageRating"],
+                    genre: data["genre"],
+                    premiere: data["isPremiere"]
+                });
+
+                const err = await result.save().catch((err) => {
+                    res
+                        .status(500)
+                        .send(`An error occured when saving to database. Error:\n${err}`)
+                    
+                    return;
+                });
+
+                await filmsCache.updateCache("film");
+    
+                res
+                    .status(200)
+                    .json({'film': filmsCache.getCache('film')});
+    
+                return;
+
+            } else {
+                res
+                    .status(404)
+                    .send(`Could not find ${showType} show of id ${data['_id']}`);
+
+                return;
+            }
+
+        } else if (showType == 'live') {
+
+            const result = await Live.findById(data['_id']);
+
+            if (result) {
+                let newPosterCloudinaryId = data['posterCloudinaryId'];
+
+                if (newPosterCloudinaryId == "NaN") 
+                    newPosterCloudinaryId = result.posterCloudinaryID;
+
+                await result.updateOne({
+                    name: data["title"],
+                    runtime: data["runTime"],
+                    livePauses: data['livePauses'],
+                    description: data["description"],
+                    date: data["runDate"],
+                    posterURL: data["posterURL"],
+                    posterCloudinaryID: newPosterCloudinaryId,
+                    trailerURL: data["trailerURL"],
+                    ticketURL: data["ticketURL"],
+                    ageRating: data["ageRating"],
+                    genre: data["genre"],
+                    premiere: data["isPremiere"]
+                });
+
+                const err = await result.save().catch((err) => {
+                    res
+                        .status(500)
+                        .send(`An error occured when saving to database. Error:\n${err}`)
+                    
+                    return;
+                });
+
+                await filmsCache.updateCache("live");
+    
+                res
+                    .status(200)
+                    .json({'live': filmsCache.getCache('live')});
+    
+                return;
+
+            } else {
+                res
+                    .status(404)
+                    .send(`Could not find ${showType} show of id ${data['_id']}`);
+
+                return;
+            }
+
+        } else if (showType == 'kontrast') {
+
+            const result = await Kontrast.findById(data['_id']);
+
+            if (result) {
+                let newPosterCloudinaryId = data['posterCloudinaryId'];
+
+                if (newPosterCloudinaryId == "NaN") 
+                    newPosterCloudinaryId = result.posterCloudinaryID;
+
+                await result.updateOne({
+                    name: data["title"],
+                    runtime: data["runTime"],
+                    description: data["description"],
+                    date: data["runDate"],
+                    posterURL: data["posterURL"],
+                    posterCloudinaryID: newPosterCloudinaryId,
+                    trailerURL: data["trailerURL"],
+                    ageRating: data["ageRating"],
+                    genre: data["genre"],
+                    premiere: data["isPremiere"]
+                });
+
+                const err = await result.save().catch((err) => {
+                    res
+                        .status(500)
+                        .send(`An error occured when saving to database. Error:\n${err}`)
+                    
+                    return;
+                });
+
+                await filmsCache.updateCache("kontrast");
+    
+                res
+                    .status(200)
+                    .json({'kontrast': filmsCache.getCache('kontrast')});
+    
+                return;
+
+            } else {
+                res
+                    .status(404)
+                    .send(`Could not find ${showType} show of id ${data['_id']}`);
+
+                return;
+            }
+
+        } else {
+            res
+                .status(400)
+                .send(`Cannot find show type ${showType}`);
+
+            return;
+        }
+
     } else if (type == "DeleteElement") {
 
         let elementType = data['elementType'];
@@ -174,7 +331,7 @@ module.exports = async (data, res) => {
     } else {
         res
             .status(400)
-            .send("Bad Request");
+            .send(`Bad Request\nCannot process type ${type}`);
 
         return;
     }
